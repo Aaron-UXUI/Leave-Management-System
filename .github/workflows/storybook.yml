@@ -1,0 +1,61 @@
+name: 部署 Storybook
+
+# 每次 main 有更新就重新建置並發布，也可以手動觸發。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# GitHub Pages 部署所需的權限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時只跑一個部署，但不中斷進行中的那個
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 建置
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 安裝相依套件
+        run: npm ci
+
+      # 設計系統的把關步驟。這兩關沒過就不該發布出去：
+      # tokens:check 會擋下寫死的視覺數值與拼錯的 token 名稱。
+      - name: Token 稽核
+        run: npm run tokens:check
+
+      - name: 型別檢查
+        run: npm run typecheck
+
+      - name: 建置 Storybook
+        run: npm run build-storybook
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: storybook-static
+
+  deploy:
+    name: 發布
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
