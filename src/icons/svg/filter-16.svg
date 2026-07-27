@@ -1,0 +1,15 @@
+<!-- 由 scripts/build-icons.mjs 從 Figma 產生，請勿手改。
+     Figma 元件：icon 16/ filter（node 1975:8179） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+     fill="none" stroke="currentColor" stroke-width="1.1"
+     stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(0.783 2.783)">
+    <path d="M0.55 0.55H13.8833" />
+  </g>
+  <g transform="translate(3.45 7.45)">
+    <path d="M0.55 0.55H8.55" />
+  </g>
+  <g transform="translate(5.45 12.117)">
+    <path d="M0.55 0.55H4.55" />
+  </g>
+</svg>

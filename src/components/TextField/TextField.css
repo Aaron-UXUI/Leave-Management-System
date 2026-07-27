@@ -1,0 +1,92 @@
+/**
+ * Text Field —— 對應 Figma「Text Field」（node 1433:25197）
+ *
+ * Device=Desktop  node 1201:32881
+ * Device=Mobile   node 1433:25198
+ */
+
+.lds-textfield {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Figma 固定寬度 320 */
+  inline-size: 320px;
+  max-inline-size: 100%;
+  font-family: var(--lds-font-family-sans);
+}
+
+.lds-textfield--desktop {
+  gap: var(--lds-spacing-s);
+}
+
+.lds-textfield--mobile {
+  gap: var(--lds-spacing-xs);
+}
+
+.lds-textfield__label {
+  color: var(--lds-color-grey-900);
+}
+
+.lds-textfield--desktop .lds-textfield__label {
+  font: var(--lds-typography-body-m);
+}
+
+/* 行動版標題放大為 body/L，因手指操作與小螢幕閱讀需要 */
+.lds-textfield--mobile .lds-textfield__label {
+  font: var(--lds-typography-body-l);
+}
+
+.lds-textfield__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lds-spacing-xs);
+  inline-size: 100%;
+}
+
+.lds-textfield__input {
+  box-sizing: border-box;
+  inline-size: 100%;
+  /* Figma 固定高度 64（8 + 兩行 24 + 8） */
+  block-size: 64px;
+  padding: var(--lds-spacing-s) var(--lds-spacing-l);
+  border: 1px solid var(--lds-color-grey-300);
+  border-radius: var(--lds-radius-s);
+  background-color: var(--lds-color-grey-white);
+  color: var(--lds-color-grey-900);
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  /* 保留瀏覽器原生的右下角縮放握把，對應設計稿的 Drag 圖層 */
+}
+
+.lds-textfield__input::placeholder {
+  color: var(--lds-color-grey-700);
+}
+
+/* ⚠ Figma 只定義了 Default 狀態。以下聚焦與停用樣式為程式端補充，
+ * 依 WCAG AA 需求加入，待設計確認。詳見 docs/figma-gaps.md */
+.lds-textfield__input:focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: 2px;
+  border-color: var(--lds-color-primary-800);
+}
+
+.lds-textfield__input:disabled {
+  background-color: var(--lds-color-grey-100);
+  color: var(--lds-color-grey-400);
+  cursor: not-allowed;
+}
+
+.lds-textfield__support {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 100%;
+  color: var(--lds-color-grey-700);
+  font: var(--lds-typography-body-m);
+  white-space: nowrap;
+}
+
+.lds-textfield__counter {
+  font-variant-numeric: tabular-nums;
+}

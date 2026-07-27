@@ -1,0 +1,100 @@
+/**
+ * 自動產生檔案 —— 請勿手動編輯。
+ *
+ * 來源：src/tokens/tokens.json（Figma Variables 的鏡像）
+ * 產生：npm run tokens:build
+ *
+ * Figma 檔案：【設計】請假系統＿本土語文直播共學
+ * fileKey：uTkRlCM3V9ZlH6GFowHy33
+ * 同步日期：2026-07-28
+ */
+
+:root {
+
+  /* ---- Color — Primary / Grey Scale / Semantic ---- */
+  --lds-color-primary-100:                   #e1e8f0;                           /* Primary/100 */
+  --lds-color-primary-200:                   #c3d1e0;                           /* Primary/200 */
+  --lds-color-primary-300:                   #a3bbd6;                           /* Primary/300 */
+  --lds-color-primary-400:                   #93aecc;                           /* Primary/400 */
+  --lds-color-primary-700:                   #4d7099;                           /* Primary/700 */
+  --lds-color-primary-800:                   #355a85;                           /* Primary/800 */
+  --lds-color-primary-900:                   #254973;                           /* Primary/900 */
+  --lds-color-grey-100:                      #dcdcdc;                           /* Grey Scale/100 */
+  --lds-color-grey-200:                      #c3c3c3;                           /* Grey Scale/200 */
+  --lds-color-grey-300:                      #aaaaaa;                           /* Grey Scale/300 */
+  --lds-color-grey-400:                      #929292;                           /* Grey Scale/400 */
+  --lds-color-grey-700:                      #4e4e4e;                           /* Grey Scale/700 */
+  --lds-color-grey-900:                      #262626;                           /* Grey Scale/900 */
+  --lds-color-grey-white:                    #fafafa;                           /* Grey Scale/White */
+  --lds-color-success-text:                  #365c00;                           /* Semantic Color/Success-text */
+  --lds-color-success-icon:                  #5d960e;                           /* Semantic Color/Success-icon */
+  --lds-color-destruct-text:                 #ab0000;                           /* Semantic Color/Destruct-text */
+  --lds-color-destruct-icon:                 #c74040;                           /* Semantic Color/Destruct-icon */
+
+  /* ---- Spacing ---- */
+  --lds-spacing-0:                           0px;                               /* Spacing/0 */
+  --lds-spacing-xs:                          4px;                               /* Spacing/xs */
+  --lds-spacing-s:                           8px;                               /* Spacing/s */
+  --lds-spacing-m:                           12px;                              /* Spacing/m */
+  --lds-spacing-l:                           16px;                              /* Spacing/l */
+  --lds-spacing-xl:                          24px;                              /* Spacing/xl */
+  --lds-spacing-3xl:                         48px;                              /* Spacing/3xl */
+  --lds-spacing-4xl:                         64px;                              /* Spacing/4xl */
+
+  /* ---- Corner radius（Figma 群組名為 "coner radius"，此處正規化為 radius） ---- */
+  --lds-radius-0:                            0px;                               /* coner radius/0 */
+  --lds-radius-xs:                           4px;                               /* coner radius/xs */
+  --lds-radius-s:                            8px;                               /* coner radius/s */
+  --lds-radius-l:                            16px;                              /* coner radius/l */
+  --lds-radius-rounded:                      9999px;                            /* coner radius/rounded */
+
+  /* ---- Font primitives — family / size / line-height / weight ---- */
+  --lds-font-family-sans:                    "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; /* Typeface/Noto Sans TC（PingFang TC 為 Figma 中的次要字體） */
+  --lds-font-family-mono:                    "SF Mono", ui-monospace, Menlo, Consolas, monospace; /* Typeface/SF Mono */
+  --lds-font-size-h1:                        32px;                              /* Font Size/H1 */
+  --lds-font-size-h2:                        24px;                              /* Font Size/H2 */
+  --lds-font-size-h3:                        20px;                              /* Font Size/H3 */
+  --lds-font-size-h4:                        16px;                              /* Font Size/H4 */
+  --lds-font-size-label:                     20px;                              /* Font Size/Label */
+  --lds-font-size-body:                      16px;                              /* Font Size/body */
+  --lds-font-line-height-h1:                 40px;                              /* Line height/H1 */
+  --lds-font-line-height-h2:                 36px;                              /* Line height/H2 */
+  --lds-font-line-height-h3:                 30px;                              /* Line height/H3 */
+  --lds-font-line-height-h4:                 24px;                              /* Line height/H4 */
+  --lds-font-line-height-label:              30px;                              /* Line height/Label */
+  --lds-font-line-height-body:               24px;                              /* Line height/body */
+  --lds-font-weight-regular:                 400;                               /* Weight/Regular */
+  --lds-font-weight-medium:                  500;                               /* Weight/Medium */
+  --lds-font-weight-bold:                    700;                               /* Weight/Bold */
+
+  /* ---- Typography styles（值為 CSS font 簡寫，可直接 font: var(--lds-typography-body-m)） ---- */
+  --lds-typography-headline-1:               700 32px/40px var(--lds-font-family-sans); /* Headline/1 */
+  --lds-typography-headline-1-font-size:     32px;                              /* Headline/1 */
+  --lds-typography-headline-1-line-height:   40px;                              /* Headline/1 */
+  --lds-typography-headline-1-font-weight:   700;                               /* Headline/1 */
+  --lds-typography-headline-2:               500 24px/36px var(--lds-font-family-sans); /* Headline/2 */
+  --lds-typography-headline-2-font-size:     24px;                              /* Headline/2 */
+  --lds-typography-headline-2-line-height:   36px;                              /* Headline/2 */
+  --lds-typography-headline-2-font-weight:   500;                               /* Headline/2 */
+  --lds-typography-headline-3:               500 20px/30px var(--lds-font-family-sans); /* Headline/3 */
+  --lds-typography-headline-3-font-size:     20px;                              /* Headline/3 */
+  --lds-typography-headline-3-line-height:   30px;                              /* Headline/3 */
+  --lds-typography-headline-3-font-weight:   500;                               /* Headline/3 */
+  --lds-typography-headline-4:               500 16px/24px var(--lds-font-family-sans); /* Headline/4 */
+  --lds-typography-headline-4-font-size:     16px;                              /* Headline/4 */
+  --lds-typography-headline-4-line-height:   24px;                              /* Headline/4 */
+  --lds-typography-headline-4-font-weight:   500;                               /* Headline/4 */
+  --lds-typography-body-l:                   400 20px/30px var(--lds-font-family-sans); /* body/L */
+  --lds-typography-body-l-font-size:         20px;                              /* body/L */
+  --lds-typography-body-l-line-height:       30px;                              /* body/L */
+  --lds-typography-body-l-font-weight:       400;                               /* body/L */
+  --lds-typography-body-m:                   400 16px/24px var(--lds-font-family-sans); /* body/M */
+  --lds-typography-body-m-font-size:         16px;                              /* body/M */
+  --lds-typography-body-m-line-height:       24px;                              /* body/M */
+  --lds-typography-body-m-font-weight:       400;                               /* body/M */
+
+  /* ---- Elevation ---- */
+  --lds-elevation-low:                       0 1px 4px 0 #dcdcdc;               /* Elevation/Low */
+  --lds-elevation-medium:                    2px 2px 4px 0 #c3c3c3, 0 4px 16px 0 #c3c3c3; /* Elevation/Medium */
+  --lds-elevation-high:                      0 3px 24px 0 #c3c3c3, 0 3px 6px 0 #dcdcdc; /* Elevation/High */
+}

@@ -1,0 +1,175 @@
+/**
+ * Button 系列 —— 對應 Figma "Button" section（node 1125:8260）
+ *
+ * Primary Button    node 1433:32129
+ * Secondary Button  node 1433:31886
+ * Tertiary Button   node 1286:5917
+ * Icon Button       node 2525:8786
+ *
+ * 所有視覺數值皆引用 tokens.css，請勿寫死。
+ */
+
+/* ---------- 共用基底 ---------- */
+
+.lds-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lds-spacing-xs);
+  margin: 0;
+  font-family: var(--lds-font-family-sans);
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  appearance: none;
+}
+
+/* ⚠ Figma 未定義聚焦樣式。研究頁明訂系統須達 WCAG AA、
+ * 且使用者年齡跨 20–60+，因此程式端補上明顯的鍵盤聚焦框。
+ * 詳見 docs/figma-gaps.md */
+.lds-btn:focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: 2px;
+}
+
+.lds-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* ---------- Primary Button ---------- */
+
+.lds-btn--primary {
+  /* Figma 固定寬度 240，窄容器下自動收斂 */
+  inline-size: 240px;
+  max-inline-size: 100%;
+  padding: var(--lds-spacing-m) var(--lds-spacing-l);
+  border-radius: var(--lds-radius-s);
+  background-color: var(--lds-color-primary-800);
+  color: var(--lds-color-grey-white);
+  font: var(--lds-typography-headline-4);
+  box-shadow: var(--lds-elevation-medium);
+}
+
+.lds-btn--primary:hover:not(:disabled),
+.lds-btn--primary[data-preview-state='hovered'] {
+  background-color: var(--lds-color-primary-700);
+}
+
+.lds-btn--primary:disabled {
+  background-color: var(--lds-color-grey-100);
+  box-shadow: none;
+}
+
+.lds-btn--block {
+  inline-size: 100%;
+}
+
+/* ---------- Secondary Button（選取／上傳證明文件） ---------- */
+
+.lds-btn--secondary {
+  position: relative;
+  overflow: hidden;
+  /* Figma 固定寬度 180 */
+  inline-size: 180px;
+  max-inline-size: 100%;
+  padding: var(--lds-spacing-m) var(--lds-spacing-l);
+  border: 1px solid var(--lds-color-primary-800);
+  border-radius: var(--lds-radius-s);
+  background-color: transparent;
+  color: var(--lds-color-primary-800);
+  font: var(--lds-typography-headline-4);
+  box-shadow: var(--lds-elevation-medium);
+}
+
+.lds-btn--secondary:hover:not(:disabled),
+.lds-btn--secondary[data-preview-state='hovered'] {
+  background-color: var(--lds-color-primary-100);
+}
+
+.lds-btn--secondary[data-state='disabled'],
+.lds-btn--secondary:disabled {
+  border-color: var(--lds-color-primary-400);
+  color: var(--lds-color-primary-400);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* 上傳完成：整顆填滿主色 */
+.lds-btn--secondary[data-state='success'] {
+  border-color: transparent;
+  background-color: var(--lds-color-primary-800);
+  color: var(--lds-color-grey-white);
+  box-shadow: none;
+}
+
+/* 上傳進度掃描條。對應 Figma 的 "Filler" 圖層與 Uploading motion 變數。
+ * 依設計稿，掃描條疊在文字之上，由左往右覆蓋成 Success 的外觀。 */
+.lds-btn__filler {
+  position: absolute;
+  inset-block: -1px;
+  inset-inline-start: -1px;
+  inline-size: 0;
+  background-color: var(--lds-color-primary-800);
+  transition: inline-size 200ms linear;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lds-btn__filler {
+    transition: none;
+  }
+}
+
+/* ---------- Tertiary Button ---------- */
+
+.lds-btn--tertiary {
+  padding: var(--lds-spacing-xs) var(--lds-spacing-0);
+  border-radius: var(--lds-radius-s);
+  color: var(--lds-color-primary-800);
+  font: var(--lds-typography-body-m);
+}
+
+/* ⚠ Figma 未定義 Tertiary 的 hover / disabled，以下為程式端暫定值，待設計確認。 */
+.lds-btn--tertiary:hover:not(:disabled),
+.lds-btn--tertiary[data-preview-state='hovered'] {
+  color: var(--lds-color-primary-900);
+  text-decoration: underline;
+}
+
+.lds-btn--tertiary:disabled {
+  color: var(--lds-color-grey-300);
+}
+
+/* ---------- Icon Button ---------- */
+
+.lds-btn--icon {
+  padding: var(--lds-spacing-l);
+  gap: var(--lds-spacing-0);
+  border: 1px solid var(--lds-color-grey-200);
+  border-radius: var(--lds-radius-s);
+  background-color: var(--lds-color-grey-white);
+  color: var(--lds-color-grey-900);
+  box-shadow: var(--lds-elevation-low);
+}
+
+/* ⚠ Figma 未定義 Icon Button 的 hover / disabled，以下沿用 Secondary Button
+ * 的 hover 語彙（Primary/100 底 + Primary/800 邊框）作為暫定值，待設計確認。 */
+.lds-btn--icon:hover:not(:disabled),
+.lds-btn--icon[data-preview-state='hovered'] {
+  background-color: var(--lds-color-primary-100);
+  border-color: var(--lds-color-primary-800);
+  color: var(--lds-color-primary-800);
+}
+
+.lds-btn--icon:disabled {
+  color: var(--lds-color-grey-300);
+  border-color: var(--lds-color-grey-100);
+  box-shadow: none;
+}
+
+/* 讓文字在掃描條之下仍維持正確堆疊層級 */
+.lds-btn__label {
+  position: relative;
+}

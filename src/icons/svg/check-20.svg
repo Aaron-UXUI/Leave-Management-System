@@ -1,0 +1,9 @@
+<!-- 由 scripts/build-icons.mjs 從 Figma 產生，請勿手改。
+     Figma 元件：CheckBox / Checked?=Yes 內的勾號（node 1190:29728） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+     fill="none" stroke="currentColor" stroke-width="1.1"
+     stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(2.783 4.45)">
+    <path d="M13.8833 0.55L4.71667 9.71667L0.55 5.55" />
+  </g>
+</svg>

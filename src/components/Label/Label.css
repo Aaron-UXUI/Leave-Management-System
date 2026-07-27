@@ -1,0 +1,46 @@
+/**
+ * Label —— 對應 Figma「Label」（node 2488:3961）
+ */
+
+.lds-label {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--lds-spacing-xs) var(--lds-spacing-m);
+  border-radius: var(--lds-radius-s);
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 請假 */
+.lds-label--leave {
+  background-color: var(--lds-color-primary-200);
+  color: var(--lds-color-grey-900);
+}
+
+/* 出席 */
+.lds-label--attend {
+  background-color: var(--lds-color-grey-100);
+  color: var(--lds-color-grey-900);
+}
+
+/* 待審 */
+.lds-label--pending {
+  background-color: var(--lds-color-primary-800);
+  color: var(--lds-color-grey-white);
+}
+
+/* 通過 */
+.lds-label--pass {
+  background-color: var(--lds-color-success-text);
+  color: var(--lds-color-grey-white);
+}
+
+/* 拒絕 */
+.lds-label--reject {
+  background-color: var(--lds-color-destruct-text);
+  color: var(--lds-color-grey-white);
+}

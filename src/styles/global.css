@@ -1,0 +1,79 @@
+/**
+ * 全域基礎樣式與文字樣式工具類別。
+ * 所有數值一律走 tokens.css 的 CSS 變數，不得寫死。
+ */
+
+.lds-root,
+.lds-typography-reset {
+  font-family: var(--lds-font-family-sans);
+  color: var(--lds-color-grey-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Typography 工具類別（對應 Figma 的文字樣式） ---- */
+
+.lds-headline-1 {
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-headline-1);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.lds-headline-2 {
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-headline-2);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.lds-headline-3 {
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-headline-3);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.lds-headline-4 {
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-headline-4);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.lds-body-l {
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-l);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.lds-body-m {
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+/* ---- 無障礙：僅螢幕閱讀器可見 ---- */
+
+.lds-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- 共用聚焦樣式 ----
+ * 研究頁註記系統需達 WCAG AA，且使用者年齡跨 20–60+，
+ * 因此鍵盤聚焦框一律外顯且維持 3px 寬度。 */
+
+.lds-focus-ring:focus-visible,
+.lds-root :focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: 2px;
+}

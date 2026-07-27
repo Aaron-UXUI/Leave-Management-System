@@ -1,0 +1,171 @@
+/**
+ * App Bar / Nav Bar —— 對應 Figma「Bar」section（node 1804:13177）
+ *
+ * App Bar / Desktop        node 1201:31471
+ * App Bar / Mobile         node 1392:23656
+ * nav_bar / teacher        node 1190:30940
+ * nav_bar / school         node 1286:16990
+ * nav_bar / teacher_mobile node 1392:23584
+ * nav_bar / school_mobile  node 1661:9028
+ */
+
+/* ---------- App Bar ---------- */
+
+.lds-appbar {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 100%;
+  background-color: var(--lds-color-grey-white);
+  font-family: var(--lds-font-family-sans);
+}
+
+.lds-appbar--desktop {
+  /* Figma 版面寬度 1280 */
+  max-inline-size: 1280px;
+  flex-wrap: wrap;
+  row-gap: var(--lds-spacing-s);
+  padding: var(--lds-spacing-l) var(--lds-spacing-4xl);
+}
+
+.lds-appbar--mobile {
+  /* Figma 版面寬度 375 */
+  max-inline-size: 375px;
+  padding: var(--lds-spacing-0) var(--lds-spacing-xl);
+}
+
+.lds-appbar__title {
+  margin: 0;
+  color: var(--lds-color-primary-800);
+  text-align: center;
+}
+
+.lds-appbar--desktop .lds-appbar__title {
+  font: var(--lds-typography-headline-1);
+}
+
+.lds-appbar--mobile .lds-appbar__title {
+  font: var(--lds-typography-headline-3);
+}
+
+.lds-appbar__back {
+  display: flex;
+  align-items: center;
+  padding: var(--lds-spacing-m);
+  border: none;
+  background: none;
+  color: var(--lds-color-grey-900);
+  cursor: pointer;
+}
+
+.lds-appbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--lds-spacing-s);
+  color: var(--lds-color-grey-700);
+}
+
+.lds-appbar--desktop .lds-appbar__user {
+  padding: var(--lds-spacing-s);
+}
+
+.lds-appbar--mobile .lds-appbar__user {
+  padding: var(--lds-spacing-m) var(--lds-spacing-s);
+}
+
+.lds-appbar__username {
+  font: var(--lds-typography-body-m);
+  white-space: nowrap;
+}
+
+/* ---------- Nav Bar ---------- */
+
+.lds-navbar {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  inline-size: 100%;
+  overflow: hidden;
+  background-color: var(--lds-color-grey-white);
+  font-family: var(--lds-font-family-sans);
+}
+
+.lds-navbar--desktop {
+  max-inline-size: 1280px;
+  padding: var(--lds-spacing-l) var(--lds-spacing-4xl) var(--lds-spacing-0);
+}
+
+.lds-navbar--mobile {
+  max-inline-size: 375px;
+  padding: var(--lds-spacing-0);
+}
+
+.lds-navbar__tab {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: var(--lds-spacing-m);
+  border: none;
+  background: none;
+  color: var(--lds-color-grey-700);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lds-navbar--desktop .lds-navbar__tab {
+  block-size: 64px;
+  font: var(--lds-typography-body-l);
+}
+
+/* 行動版分頁等寬平分 */
+.lds-navbar--mobile .lds-navbar__tab {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  block-size: 48px;
+  font: var(--lds-typography-body-m);
+}
+
+/* 選取中的分頁改用 Headline（Medium 字重）與主色 */
+.lds-navbar__tab[aria-current='page'] {
+  color: var(--lds-color-primary-800);
+}
+
+.lds-navbar--desktop .lds-navbar__tab[aria-current='page'] {
+  font: var(--lds-typography-headline-3);
+}
+
+.lds-navbar--mobile .lds-navbar__tab[aria-current='page'] {
+  font: var(--lds-typography-headline-4);
+}
+
+.lds-navbar__text {
+  inline-size: 100%;
+}
+
+/* 指示條放在選取中的分頁內，寬度自然等於該分頁寬度 */
+.lds-navbar__indicator {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  block-size: 2px;
+  border-radius: var(--lds-radius-xs);
+  background-color: var(--lds-color-primary-800);
+}
+
+/* ⚠ Figma 未定義 hover / 聚焦樣式，以下為程式端補充。見 docs/figma-gaps.md */
+.lds-navbar__tab:hover {
+  color: var(--lds-color-primary-800);
+}
+
+.lds-navbar__tab:focus-visible,
+.lds-appbar__back:focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: -3px;
+}

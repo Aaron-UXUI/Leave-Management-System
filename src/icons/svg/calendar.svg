@@ -1,0 +1,9 @@
+<!-- 由 scripts/build-icons.mjs 從 Figma 產生，請勿手改。
+     Figma 元件：icon 24 / calendar（node 1141:24277） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+     fill="none" stroke="currentColor" stroke-width="1.1"
+     stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(2.45 1.45)">
+    <path d="M5.55 0.55V4.55M13.55 0.55V4.55M0.55 8.55H18.55M5.55 12.55H5.56M9.55 12.55H9.56M13.55 12.55H13.56M5.55 16.55H5.56M9.55 16.55H9.56M13.55 16.55H13.56M2.55 2.55H16.55C17.6546 2.55 18.55 3.44543 18.55 4.55V18.55C18.55 19.6546 17.6546 20.55 16.55 20.55H2.55C1.44543 20.55 0.55 19.6546 0.55 18.55V4.55C0.55 3.44543 1.44543 2.55 2.55 2.55Z" />
+  </g>
+</svg>

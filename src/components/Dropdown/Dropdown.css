@@ -1,0 +1,70 @@
+/**
+ * Dropdown —— 對應 Figma「Dropdown」（node 1190:29779）
+ *
+ * State=Default         node 1190:29773
+ * State=Date Selecting  node 1190:29780
+ * State=Selected        node 1190:29793
+ * State=Disable         node 1412:24653
+ * State=State5（錯誤）  node 2074:11240
+ */
+
+.lds-dropdown {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--lds-spacing-xs);
+  /* Figma 固定寬度 204 */
+  inline-size: 204px;
+  max-inline-size: 100%;
+}
+
+.lds-dropdown__trigger {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--lds-spacing-xs);
+  inline-size: 100%;
+  block-size: 48px;
+  padding: var(--lds-spacing-s) var(--lds-spacing-l);
+  border: 1px solid var(--lds-color-grey-300);
+  border-radius: var(--lds-radius-s);
+  background: none;
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  color: var(--lds-color-grey-400);
+  text-align: start;
+  cursor: pointer;
+}
+
+.lds-dropdown__text {
+  /* Figma 中文字區塊固定 144 寬 */
+  inline-size: 144px;
+  flex: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lds-dropdown__trigger[data-state='selecting'],
+.lds-dropdown__trigger[data-state='selected'] {
+  color: var(--lds-color-grey-900);
+}
+
+.lds-dropdown__trigger[data-state='disabled'],
+.lds-dropdown__trigger:disabled {
+  border-color: var(--lds-color-grey-200);
+  color: var(--lds-color-grey-200);
+  cursor: not-allowed;
+}
+
+.lds-dropdown__trigger[data-state='error'] {
+  border: 2px solid var(--lds-color-destruct-icon);
+  color: var(--lds-color-grey-700);
+}
+
+/* ⚠ Figma 未定義聚焦樣式，以下為程式端補充。見 docs/figma-gaps.md */
+.lds-dropdown__trigger:focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: 2px;
+}

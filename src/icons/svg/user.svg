@@ -1,0 +1,12 @@
+<!-- 由 scripts/build-icons.mjs 從 Figma 產生，請勿手改。
+     Figma 元件：icon 24 / user（node 1286:16953） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+     fill="none" stroke="currentColor" stroke-width="1.1"
+     stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(4.45 14.45)">
+    <path d="M14.55 6.55V4.55C14.55 3.48913 14.1286 2.47172 13.3784 1.72157C12.6283 0.971428 11.6109 0.55 10.55 0.55H4.55C3.48913 0.55 2.47172 0.971428 1.72157 1.72157C0.971427 2.47172 0.55 3.48913 0.55 4.55V6.55" />
+  </g>
+  <g transform="translate(7.45 2.45)">
+    <path d="M4.55 8.55C6.75914 8.55 8.55 6.75914 8.55 4.55C8.55 2.34086 6.75914 0.55 4.55 0.55C2.34086 0.55 0.55 2.34086 0.55 4.55C0.55 6.75914 2.34086 8.55 4.55 8.55Z" />
+  </g>
+</svg>

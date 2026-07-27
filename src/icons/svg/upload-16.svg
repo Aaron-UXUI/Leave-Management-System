@@ -1,0 +1,15 @@
+<!-- 由 scripts/build-icons.mjs 從 Figma 產生，請勿手改。
+     Figma 元件：icon 16 / upload（node 1286:5890） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
+     fill="none" stroke="currentColor" stroke-width="1.1"
+     stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(7.45 1.45)">
+    <path d="M0.55 0.55V8.55" />
+  </g>
+  <g transform="translate(4.117 1.45)">
+    <path d="M7.21667 3.88333L3.88333 0.55L0.55 3.88333" />
+  </g>
+  <g transform="translate(1.45 9.45)">
+    <path d="M12.55 0.55V3.21667C12.55 3.57029 12.4095 3.90943 12.1595 4.15948C11.9094 4.40952 11.5703 4.55 11.2167 4.55H1.88333C1.52971 4.55 1.19057 4.40952 0.940524 4.15948C0.690476 3.90943 0.55 3.57029 0.55 3.21667V0.55" />
+  </g>
+</svg>

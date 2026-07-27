@@ -1,0 +1,13 @@
+/**
+ * Alert —— 對應 Figma「Alert」（node 2074:11301）
+ */
+
+.lds-alert {
+  display: flex;
+  align-items: center;
+  gap: var(--lds-spacing-xs);
+  margin: 0;
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  color: var(--lds-color-destruct-text);
+}
