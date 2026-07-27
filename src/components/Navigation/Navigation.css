@@ -29,9 +29,9 @@
   padding: var(--lds-spacing-l) var(--lds-spacing-4xl);
 }
 
+/* Figma 的 375 是設計參考視窗，不是版面上限 ——
+ * 行動版一律隨容器寬度伸縮，否則在 390／414 的手機上會靠左留白。 */
 .lds-appbar--mobile {
-  /* Figma 版面寬度 375 */
-  max-inline-size: 375px;
   padding: var(--lds-spacing-0) var(--lds-spacing-xl);
 }
 
@@ -97,8 +97,8 @@
   padding: var(--lds-spacing-l) var(--lds-spacing-4xl) var(--lds-spacing-0);
 }
 
+/* 同上，行動版隨容器伸縮；分頁本身已是等寬平分 */
 .lds-navbar--mobile {
-  max-inline-size: 375px;
   padding: var(--lds-spacing-0);
 }
 

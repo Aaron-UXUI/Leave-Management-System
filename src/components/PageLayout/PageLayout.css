@@ -1,0 +1,82 @@
+/**
+ * PageLayout —— 頁面骨架
+ *
+ * 版面依據見 PageLayout.tsx 的註解。
+ * 這裡只放版面決策，不放任何元件外觀。
+ */
+
+.lds-page {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100dvh;
+  font-family: var(--lds-font-family-sans);
+  color: var(--lds-color-grey-900);
+  /* 內容區底色。Figma 各畫面的底色與 App Bar 一致 */
+  background-color: var(--lds-color-grey-white);
+}
+
+/* ---------- 頂部列 ---------- */
+
+.lds-page__bars {
+  flex: none;
+  /* iOS 標準模式下保留系統狀態列的安全區，取代 Figma 的 Status bar 圖層 */
+  padding-block-start: env(safe-area-inset-top, 0px);
+  background-color: var(--lds-color-grey-white);
+}
+
+.lds-page[data-sticky] .lds-page__bars {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 10;
+}
+
+/* 桌機的頂部列本身滿版，內部元件自己收在 1280 內並置中 */
+.lds-page--desktop .lds-page__bars > * {
+  margin-inline: auto;
+}
+
+/* ---------- 內容區 ---------- */
+
+.lds-page__content {
+  flex: 1 1 auto;
+  inline-size: 100%;
+}
+
+.lds-page__container {
+  box-sizing: border-box;
+  inline-size: 100%;
+  margin-inline: auto;
+}
+
+/*
+ * 桌機：內容欄與 App Bar / Nav Bar 對齊 —— 最大寬 1280、左右留白 64。
+ *
+ * ⚠ 上下留白（此處為 Spacing/xl = 24）尚未從 Figma 畫面確認，
+ * 因為桌機頁的 metadata 取不下來。左右的 64 與 1280 是確定的，
+ * 取自 App Bar / Desktop 與 nav_bar / teacher。見 docs/figma-gaps.md。
+ */
+.lds-page--desktop .lds-page__container {
+  max-inline-size: 1280px;
+  padding-inline: var(--lds-spacing-4xl);
+  padding-block: var(--lds-spacing-xl);
+}
+
+/* 行動版：內距 24，取自 Content 圖層（例 node 1661:9063） */
+.lds-page--mobile .lds-page__container {
+  padding-inline: var(--lds-spacing-xl);
+  padding-block: var(--lds-spacing-xl);
+}
+
+/* ---------- 底部固定列 ---------- */
+
+.lds-page__bottom {
+  flex: none;
+  position: sticky;
+  inset-block-end: 0;
+  z-index: 10;
+  /* 保留 home indicator 的安全區 */
+  padding-block-end: env(safe-area-inset-bottom, 0px);
+  background-color: var(--lds-color-grey-white);
+  box-shadow: var(--lds-elevation-low);
+}

@@ -134,9 +134,8 @@
   flex-direction: column;
   align-items: center;
   gap: var(--lds-spacing-s);
-  /* Figma 固定寬度 375 */
-  inline-size: 375px;
-  max-inline-size: 100%;
+  /* Figma 的 375 是設計參考視窗，實際隨容器伸縮 */
+  inline-size: 100%;
   padding: var(--lds-spacing-s) var(--lds-spacing-xl);
   overflow: hidden;
   background-color: var(--lds-color-grey-white);
