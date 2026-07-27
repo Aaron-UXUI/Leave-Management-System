@@ -2,6 +2,8 @@
 
 「本土語文直播共學」請假系統的設計系統，React + TypeScript 實作。
 
+📖 **[線上 Storybook](https://aaron-uxui.github.io/Leave-Management-System/)** —— 所有 token 與元件都在這裡，不需要在本地安裝任何東西。
+
 **唯一真實來源是 Figma**：[【設計】請假系統＿本土語文直播共學](https://www.figma.com/design/uTkRlCM3V9ZlH6GFowHy33/)
 
 這個 repo 裡的每一個顏色、間距、字級、圓角、陰影，都來自 Figma Variables，
@@ -11,12 +13,17 @@
 
 ## 開始使用
 
+只是想看元件的話，直接開[線上 Storybook](https://aaron-uxui.github.io/Leave-Management-System/) 即可。
+每次 `main` 有更新就會自動重新發布，發布前會先跑 token 稽核與型別檢查，兩者沒過就不會上線。
+
+要在本地開發：
+
 ```bash
 npm install
 npm run storybook
 ```
 
-Storybook 會開在 <http://localhost:6006>，裡面有全部的 token 與元件。
+Storybook 會開在 <http://localhost:6006>。
 
 ## 指令
 
