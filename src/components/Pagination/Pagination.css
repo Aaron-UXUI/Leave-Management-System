@@ -1,0 +1,56 @@
+/**
+ * Pagination —— 對應 Figma「Pagination」（node 1286:6127）
+ */
+
+.lds-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lds-spacing-s);
+  font-family: var(--lds-font-family-sans);
+}
+
+.lds-pagination__pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Figma 標示 10px，未使用 token。見 docs/figma-gaps.md */
+  gap: 10px;
+  block-size: 48px;
+  overflow: hidden;
+}
+
+.lds-pagination__page {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inline-size: 32px;
+  /* Figma 標示左右 11px，未使用 token。見 docs/figma-gaps.md */
+  padding: var(--lds-spacing-xs) 11px;
+  border: none;
+  border-radius: var(--lds-radius-xs);
+  background: none;
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  color: var(--lds-color-grey-900);
+  text-align: center;
+  cursor: pointer;
+}
+
+.lds-pagination__page[data-current] {
+  background-color: var(--lds-color-primary-900);
+  color: var(--lds-color-grey-white);
+}
+
+/* ⚠ Figma 未定義 hover / 聚焦，以下為程式端補充。見 docs/figma-gaps.md */
+.lds-pagination__page:hover:not([data-current]) {
+  background-color: var(--lds-color-primary-100);
+}
+
+.lds-pagination__page:focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: 2px;
+}

@@ -21,7 +21,17 @@
 | Radio | `1125:8695` | [`Radio`](../src/components/Choice/Radio.tsx) | `State=On/Off` → 原生 `checked` |
 | Radio Button / Leave_Selection | `1125:8706` | 同上 | `label` → `children` |
 | Radio Button Group | `1125:8733` | [`RadioGroup`](../src/components/Choice/RadioGroup.tsx) | `showAlert` → `error` |
+| Dropdown / Date Selection | `1141:23860` | [`DateSelectionDropdown`](../src/components/Dropdown/DateSelectionDropdown.tsx) | `State=Default/Selecting/Selected/Error` → `state`；必填星號 → `required` |
 | Search Bar | `2484:4001` | [`SearchBar`](../src/components/SearchBar/SearchBar.tsx) | — |
+| Button / Date | `1125:22146` | [`DateButton`](../src/components/DateTime/DateTimeButtons.tsx) | `State=Default/Pressed` → `selected`；相鄰月份 33% 透明 → `outside` |
+| Button / Pre&Next | `1125:22353` | [`PrevNextButton`](../src/components/DateTime/DateTimeButtons.tsx) | `Type=Previous/Next` → `direction` |
+| Button / Hour&Minute | `1190:30037` | [`HourMinuteButton`](../src/components/DateTime/DateTimeButtons.tsx) | `State=Default/Pressed` → `selected` |
+| Date Picker | `1433:24853` | [`DatePicker`](../src/components/DateTime/DatePicker.tsx) | `Type=Overlay/Mobile Screen` → `variant`；`Error` → `error` |
+| TimePicker | `1286:17966` | [`TimePicker`](../src/components/DateTime/TimePicker.tsx) | `Type=Teacher/Teacher_Mobile` → `variant`；`Error` → `error` |
+| Pagination | `1286:6127` | [`Pagination`](../src/components/Pagination/Pagination.tsx) | `total` / `current` / `onChange` |
+| Overlay | `1270:8106` | [`Tooltip`](../src/components/Overlay/Tooltip.tsx) | 程式端改名為 Tooltip，見 [figma-gaps A11](./figma-gaps.md) |
+| Overlay / Success | `1433:27259` | [`SuccessOverlay`](../src/components/Overlay/SuccessOverlay.tsx) | `email` / `actionLabel` / `onAction` |
+| Bottom Bar | `2469:8462` | [`BottomBar`](../src/components/Overlay/BottomBar.tsx) | 內容以 children 傳入 |
 | App Bar / Desktop | `1201:31471` | [`AppBar`](../src/components/Navigation/AppBar.tsx) | `device="desktop"` |
 | App Bar / Mobile | `1392:23656` | 同上 | `device="mobile"`；`showButtonPre` → `onBack` |
 | nav_bar / teacher | `1190:30940` | [`NavBar`](../src/components/Navigation/NavBar.tsx) | `TEACHER_NAV_ITEMS` + `device="desktop"` |
@@ -51,9 +61,11 @@ Figma icon section `1804:12591`，全部由 [`<Icon>`](../src/icons/Icon.tsx) �
 | `filter-16` | icon 16/ filter | `1975:8179` |
 | `check-20` | CheckBox 內嵌的勾號 | `1190:29728` |
 | `search-20` | Search Bar 內嵌的放大鏡 | `2484:3995` |
+| `success-check` | Overlay / Success 的成功圖示 | `1433:27234` |
 
-最後兩個沒有收錄在 icon section，是內嵌在元件裡的向量，
-為了走同一套管線而抽出來。
+最後三個沒有收錄在 icon section，是內嵌在元件裡的向量，
+為了走同一套管線而抽出來。`search-20` 與 `success-check` 是填色圖示
+（`mode: 'fill'`），其餘為 Lucide 描邊圖示。
 
 幾何上的注意事項：
 
@@ -66,4 +78,6 @@ Figma icon section `1804:12591`，全部由 [`<Icon>`](../src/icons/Icon.tsx) �
 
 ## 尚未移植
 
-見 [figma-gaps.md 的 C 節](./figma-gaps.md#c-尚未移植的-figma-元件)。
+元件頁上只剩 iOS 系統元件（Status bar、Home Indicator、Keyboard）
+與原型用的 Motion 畫板未移植，原因見
+[figma-gaps.md 的 C 節](./figma-gaps.md#c-尚未移植的-figma-元件)。

@@ -74,6 +74,33 @@ Figma 中同時存在：
 程式端正規化為 `radius/xs`（4px）。該圓角沒有可見背景，
 僅影響鍵盤聚焦框的形狀。
 
+### A10. Pagination 使用了非 token 的間距
+
+`1286:6127` 的頁碼之間是 `10px`、頁碼按鈕左右內距是 `11px`，
+兩者都不在 spacing 級距上（最接近的是 `s`=8 與 `m`=12）。
+程式端照設計稿寫死並加了註解，建議在 Figma 收斂到 token。
+
+### A11. 「Overlay」其實是 tooltip
+
+`1270:8106` 命名為 Overlay，但它是白底、圓角 8、Elevation/Medium 的
+說明浮層，內容是預錄課程的時間規則 —— 是 tooltip，不是遮罩層。
+和 `1433:27259` 的「Overlay / Success」不是同一類東西，放在同一個命名空間下
+容易誤導工程端。程式端命名為 `Tooltip`，建議 Figma 一併改名。
+
+### A12. Dropdown / Date Selection 的 Selecting 少了間距
+
+`1141:23860` 的四個 state 中，Default / Selected / Error 的標題與欄位之間
+是 `Spacing/s`（8），只有 `State=Selecting`（`1141:23861`）是 0。
+看起來是漏設，程式端四個狀態一律用 8。
+
+### A13. 日曆的相鄰月份日期以 33% 不透明度呈現
+
+`1125:22255` 等格子不是換色 token，而是整個 Button / Date 實例套 33% 不透明度。
+在 Primary/100 底上，Grey Scale/700 降到 33% 後對比度約 1.4:1。
+這些日期不可點選，屬於裝飾性資訊，因此不算違反 WCAG 的文字對比要求，
+程式端也一併設為 `disabled`。但若之後要讓使用者能點相鄰月份的日期，
+這個對比度就必須調整。
+
 ---
 
 ## B. Figma 未定義，程式端補上的狀態
@@ -89,31 +116,41 @@ Figma 中同時存在：
 | Text Field | focus / disabled | `Primary/800` 邊框 ／ `Grey Scale/100` 底、`Grey Scale/400` 文字 |
 | Radio / Checkbox | disabled | `Grey Scale/300` 邊框與圓點 |
 | Nav Bar | hover | 文字轉 `Primary/800` |
+| Button / Date | hover / disabled | `Primary/100` 底 ／ `Grey Scale/300` 文字 |
+| Button / Pre&Next | hover / disabled | `Primary/100` 底 ／ `Grey Scale/300` 文字 |
+| Button / Hour&Minute | hover / disabled | `Primary/100` 底 ／ `Grey Scale/300` 文字 |
+| Button / text（取消、確認） | hover | `Primary/100` 底 |
+| Pagination 頁碼 | hover | `Primary/100` 底 |
 
 聚焦樣式之所以直接補上而非留空，是因為研究頁明確要求 WCAG AA；
 沒有可見的鍵盤聚焦指示會直接違反 2.4.7。
 
 ---
 
+## B2. 設計稿無法表達、由程式端決定的行為
+
+這些不是「Figma 漏畫」，而是靜態設計稿本來就表達不了的動態行為。
+列出來是為了讓設計端知道程式做了什麼決定。
+
+| 位置 | 行為 | 說明 |
+| --- | --- | --- |
+| TimePicker 時／分欄 | 開啟時自動捲到已選的值 | 時有 24 項、分有 60 項，可視高度只有 336（7 格）。不捲動的話使用者看不到目前選的值。 |
+| Overlay / Success 的成功圖示 | 縮放淡入 400ms | Figma 的 Motion 元件（`1433:27237`）有 Board 0→2 三個關鍵影格，但沒有標註時長與 easing。程式端採 400ms、`cubic-bezier(0.34, 1.4, 0.64, 1)`，並在 `prefers-reduced-motion` 下停用。實際數值待設計確認。 |
+| Secondary Button 上傳掃描條 | 200ms linear | 同樣沒有動態標註，見 A7。 |
+
+另外，`Overlay / Success` 的成功圖示原始資產帶有一個 2px 的細微投影
+（`feDropShadow`，25% 黑）。圖示管線只保留路徑，這個投影已略去；
+在白底上肉眼幾乎看不出差異。
+
+---
+
 ## C. 尚未移植的 Figma 元件
 
-以下元件存在於 Figma，但這一輪還沒做成程式碼。
-節點 ID 都在，之後可以直接接著做：
-
-| Figma 元件 | 節點 | 備註 |
+| Figma 元件 | 節點 | 為什麼沒做 |
 | --- | --- | --- |
-| Date Picker | `1433:24853` | 3 個 variant（Overlay / Overlay+Error / Mobile Screen） |
-| TimePicker | `1286:17966` | 3 個 variant |
-| Dropdown / Date Selection | `1141:23860` | 4 個 state，日期選擇器內部使用 |
-| Button / Date | `1125:22146` | 日曆格子按鈕，Pressed / Default |
-| Button / Pre&Next | `1125:22353` | 月份切換，Previous / Next |
-| Button / Hour&Minute | `1190:30037` | 時間選擇，Default / Pressed |
-| Pagination | `1286:6127` | 表格分頁 |
-| Overlay | `1270:8106` | 遮罩底層 |
-| Overlay / Success | `1433:27259` | 送出成功畫面 |
-| Bottom Bar | `2469:8462` | 行動版底部操作列 |
-| Status bar / Home Indicator / Keyboard | `1607:7869`、`1607:8181`、`2297:9899` | iOS 系統元件，通常不需要自己實作 |
-| Motion | `1433:27237` | 原型用的動態畫板，非 UI 元件 |
+| Status bar | `1607:7869` | iOS 系統元件，由作業系統繪製，不需自行實作 |
+| Home Indicator | `1607:8181` | 同上 |
+| Keyboard | `2297:9899` | 同上 |
+| Motion | `1433:27237` | 原型用的動態畫板，不是 UI 元件；其內容已併入 `SuccessOverlay` 的成功圖示 |
 
-日期與時間選擇器是這批裡最大的一塊，且彼此相依
-（Date Picker 會用到 Button/Date 與 Button/Pre&Next），建議一起做。
+除上述之外，元件頁（`1795:12587`）上的元件都已移植完成。

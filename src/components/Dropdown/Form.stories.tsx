@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Dropdown } from './Dropdown';
+import { DateSelectionDropdown } from './DateSelectionDropdown';
 import { TextField } from '../TextField';
 import { SearchBar } from '../SearchBar';
 import { Alert } from '../Alert';
@@ -60,6 +61,31 @@ export const DropdownStates: Story = {
       <div>
         <Caption>Error（Figma 中命名為 State5）</Caption>
         <Dropdown label="請假開始時間" state="error" />
+      </div>
+    </Grid>
+  ),
+};
+
+/** Dropdown / Date Selection 的四個狀態，帶欄位標題與必填星號。 */
+export const DateSelectionStates: Story = {
+  args: { label: '請假日期' },
+  render: () => (
+    <Grid>
+      <div>
+        <Caption>Default</Caption>
+        <DateSelectionDropdown state="default" />
+      </div>
+      <div>
+        <Caption>Selecting</Caption>
+        <DateSelectionDropdown state="selecting" />
+      </div>
+      <div>
+        <Caption>Selected</Caption>
+        <DateSelectionDropdown state="selected" value="2025/08/04" />
+      </div>
+      <div>
+        <Caption>Error</Caption>
+        <DateSelectionDropdown state="error" />
       </div>
     </Grid>
   ),

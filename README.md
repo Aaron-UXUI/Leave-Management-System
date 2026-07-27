@@ -95,13 +95,15 @@ docs/
 | 分類 | 元件 |
 | --- | --- |
 | Button | `PrimaryButton`、`SecondaryButton`、`TertiaryButton`、`IconButton` |
-| Form | `TextField`、`Dropdown`、`Radio`、`RadioGroup`、`Checkbox`、`SearchBar` |
-| Feedback | `Alert`、`Label` |
-| Navigation | `AppBar`、`NavBar` |
-| Foundation | `Icon`（10 個圖示）、`token` |
+| Form | `TextField`、`Dropdown`、`DateSelectionDropdown`、`Radio`、`RadioGroup`、`Checkbox`、`SearchBar` |
+| DateTime | `DatePicker`、`TimePicker`、`DateButton`、`PrevNextButton`、`HourMinuteButton` |
+| Feedback | `Alert`、`Label`、`Tooltip`、`SuccessOverlay` |
+| Navigation | `AppBar`、`NavBar`、`Pagination`、`BottomBar` |
+| Foundation | `Icon`（11 個圖示）、`token` |
 
-日期／時間選擇器、Pagination、Overlay、Bottom Bar 尚未移植，
-清單與節點 ID 見 [figma-gaps.md](./docs/figma-gaps.md#c-尚未移植的-figma-元件)。
+元件頁上的元件已全數移植，只剩 iOS 系統元件（Status bar、Home Indicator、
+Keyboard）與原型用的 Motion 畫板未做，原因見
+[figma-gaps.md](./docs/figma-gaps.md#c-尚未移植的-figma-元件)。
 
 ---
 

@@ -1,0 +1,148 @@
+/**
+ * 浮層與底部操作列 —— 對應 Figma
+ *   Overlay           node 1270:8106（實為說明用 tooltip）
+ *   Overlay / Success node 1433:27259
+ *   Bottom Bar        node 2469:8462
+ */
+
+/* ---------- Tooltip（Figma 名為 Overlay） ---------- */
+
+.lds-tooltip {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--lds-spacing-s);
+  border-radius: var(--lds-radius-s);
+  background-color: var(--lds-color-grey-white);
+  box-shadow: var(--lds-elevation-medium);
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  color: var(--lds-color-grey-700);
+}
+
+.lds-tooltip ul {
+  margin: 0;
+  padding-inline-start: var(--lds-spacing-xl);
+  list-style: disc;
+}
+
+.lds-tooltip li + li {
+  margin-block-start: var(--lds-spacing-s);
+}
+
+.lds-tooltip__em {
+  font-weight: var(--lds-font-weight-bold);
+  color: var(--lds-color-primary-800);
+}
+
+/* ---------- Overlay / Success ---------- */
+
+.lds-success {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Figma 固定尺寸 480×480 */
+  inline-size: 480px;
+  block-size: 480px;
+  max-inline-size: 100%;
+  overflow: hidden;
+  border-radius: var(--lds-radius-l);
+  background-color: var(--lds-color-grey-white);
+  box-shadow: var(--lds-elevation-high);
+  font-family: var(--lds-font-family-sans);
+}
+
+.lds-success__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lds-spacing-3xl);
+  /* Figma 內容欄寬 327 */
+  inline-size: 327px;
+  max-inline-size: 100%;
+}
+
+.lds-success__motion {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  inline-size: 180px;
+  block-size: 180px;
+  padding: var(--lds-spacing-l);
+}
+
+.lds-success__mark {
+  color: var(--lds-color-success-icon);
+}
+
+/* 對應 Figma Motion 元件 Board 0→2 的揭露動畫 */
+@media (prefers-reduced-motion: no-preference) {
+  .lds-success__mark {
+    animation: lds-success-pop 400ms cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  }
+}
+
+@keyframes lds-success-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.lds-success__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lds-spacing-l);
+  inline-size: 100%;
+}
+
+.lds-success__title {
+  margin: 0;
+  inline-size: 100%;
+  font: var(--lds-typography-headline-1);
+  color: var(--lds-color-grey-900);
+  text-align: center;
+}
+
+.lds-success__desc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lds-spacing-xs);
+  inline-size: 100%;
+  color: var(--lds-color-grey-700);
+  text-align: center;
+}
+
+.lds-success__desc p {
+  margin: 0;
+  font: var(--lds-typography-body-m);
+}
+
+/* ---------- Bottom Bar ---------- */
+
+.lds-bottombar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--lds-spacing-s);
+  /* Figma 固定寬度 375 */
+  inline-size: 375px;
+  max-inline-size: 100%;
+  padding: var(--lds-spacing-s) var(--lds-spacing-xl);
+  overflow: hidden;
+  background-color: var(--lds-color-grey-white);
+}
+
+/* 底部列中的按鈕撐滿寬度 */
+.lds-bottombar > * {
+  inline-size: 100%;
+}

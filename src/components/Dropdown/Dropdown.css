@@ -46,6 +46,31 @@
   white-space: nowrap;
 }
 
+/* ---------- Dropdown / Date Selection（node 1141:23860） ---------- */
+
+/* 只選日期，不含時間，因此文字區較窄；寬度改由內容決定 */
+.lds-dropdown--dateonly {
+  gap: var(--lds-spacing-s);
+  inline-size: auto;
+}
+
+.lds-dropdown--dateonly .lds-dropdown__trigger {
+  inline-size: auto;
+}
+
+.lds-dropdown--dateonly .lds-dropdown__text {
+  inline-size: 96px;
+}
+
+.lds-dropdown__label {
+  font: var(--lds-typography-body-m);
+  color: var(--lds-color-grey-900);
+}
+
+.lds-dropdown__required {
+  color: var(--lds-color-destruct-text);
+}
+
 .lds-dropdown__trigger[data-state='selecting'],
 .lds-dropdown__trigger[data-state='selected'] {
   color: var(--lds-color-grey-900);

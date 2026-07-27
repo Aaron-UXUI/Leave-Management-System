@@ -1,0 +1,323 @@
+/**
+ * 日期／時間選擇器 —— 對應 Figma
+ *   Button / Date         node 1125:22146
+ *   Button / Pre&Next     node 1125:22353
+ *   Button / Hour&Minute  node 1190:30037
+ *   Date Picker           node 1433:24853
+ *   TimePicker            node 1286:17966
+ */
+
+/* ---------- Button / Date ---------- */
+
+.lds-datebtn {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  inline-size: 48px;
+  block-size: 48px;
+  padding: 0;
+  border: none;
+  border-radius: var(--lds-radius-rounded);
+  background: none;
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-body-m);
+  color: var(--lds-color-grey-700);
+  cursor: pointer;
+}
+
+/* 選取時中央的 40×40 實心圓（Figma 圖層 FilledBrown，實為 Primary/800） */
+.lds-datebtn[data-selected]::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  inline-size: 40px;
+  block-size: 40px;
+  border-radius: var(--lds-radius-rounded);
+  background-color: var(--lds-color-primary-800);
+  transform: translate(-50%, -50%);
+}
+
+.lds-datebtn[data-selected] {
+  color: var(--lds-color-grey-white);
+}
+
+.lds-datebtn__text {
+  position: relative;
+}
+
+/* 相鄰月份的日期。設計稿是整格套 33% 不透明度，不是換色 token。 */
+.lds-datebtn[data-outside] {
+  opacity: 0.33;
+  cursor: default;
+}
+
+.lds-datebtn:disabled:not([data-outside]) {
+  color: var(--lds-color-grey-300);
+  cursor: not-allowed;
+}
+
+/* ⚠ Figma 未定義 hover / 聚焦，以下為程式端補充。見 docs/figma-gaps.md */
+.lds-datebtn:hover:not(:disabled):not([data-selected]) {
+  background-color: var(--lds-color-primary-100);
+}
+
+.lds-datebtn:focus-visible,
+.lds-prevnext:focus-visible,
+.lds-hmbtn:focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: 2px;
+}
+
+/* ---------- Button / Pre&Next ---------- */
+
+.lds-prevnext {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  align-items: center;
+  padding: var(--lds-spacing-m);
+  border: none;
+  border-radius: var(--lds-radius-rounded);
+  background: none;
+  color: var(--lds-color-grey-900);
+  cursor: pointer;
+}
+
+.lds-prevnext:disabled {
+  color: var(--lds-color-grey-300);
+  cursor: not-allowed;
+}
+
+/* ⚠ Figma 未定義 hover。 */
+.lds-prevnext:hover:not(:disabled) {
+  background-color: var(--lds-color-primary-100);
+}
+
+/* ---------- Button / Hour&Minute ---------- */
+
+.lds-hmbtn {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  inline-size: 60px;
+  block-size: 48px;
+  padding: 0;
+  border: none;
+  border-radius: var(--lds-radius-xs);
+  background: none;
+  /* 設計稿使用 Typeface/SF Mono，等寬才不會讓數字左右跳動 */
+  font-family: var(--lds-font-family-mono);
+  font-size: var(--lds-font-size-body);
+  line-height: var(--lds-font-line-height-body);
+  font-weight: var(--lds-font-weight-regular);
+  color: var(--lds-color-grey-700);
+  text-align: center;
+  cursor: pointer;
+}
+
+.lds-hmbtn[data-selected] {
+  background-color: var(--lds-color-primary-200);
+  color: var(--lds-color-grey-900);
+}
+
+.lds-hmbtn:disabled {
+  color: var(--lds-color-grey-300);
+  cursor: not-allowed;
+}
+
+/* ⚠ Figma 未定義 hover。 */
+.lds-hmbtn:hover:not(:disabled):not([data-selected]) {
+  background-color: var(--lds-color-primary-100);
+}
+
+/* ---------- Button / text（取消、確認） ---------- */
+
+.lds-textbtn {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--lds-spacing-m);
+  border: none;
+  border-radius: var(--lds-radius-xs);
+  background: none;
+  font-family: var(--lds-font-family-sans);
+  font: var(--lds-typography-headline-4);
+  color: var(--lds-color-primary-800);
+  cursor: pointer;
+}
+
+/* ⚠ Figma 未定義 hover / 聚焦，以下為程式端補充。見 docs/figma-gaps.md */
+.lds-textbtn:hover {
+  background-color: var(--lds-color-primary-100);
+}
+
+.lds-textbtn:focus-visible {
+  outline: 3px solid var(--lds-color-primary-700);
+  outline-offset: 2px;
+}
+
+/* ---------- Date Picker ---------- */
+
+.lds-datepicker {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--lds-font-family-sans);
+}
+
+.lds-datepicker--overlay {
+  /* Figma 固定寬度 360，左右內距 12 */
+  inline-size: 360px;
+  max-inline-size: 100%;
+  padding: var(--lds-spacing-0) var(--lds-spacing-m);
+  border-radius: var(--lds-radius-l);
+  background-color: var(--lds-color-primary-100);
+  box-shadow: var(--lds-elevation-high);
+}
+
+.lds-datepicker--mobile {
+  /* Figma 固定寬度 375，日曆置中 */
+  inline-size: 375px;
+  max-inline-size: 100%;
+  padding: var(--lds-spacing-0) var(--lds-spacing-m);
+  border-radius: var(--lds-radius-0);
+  background-color: var(--lds-color-grey-white);
+}
+
+.lds-datepicker__selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  block-size: 64px;
+}
+
+.lds-datepicker__yearmonth {
+  display: flex;
+  align-items: center;
+  gap: var(--lds-spacing-s);
+  font: var(--lds-typography-headline-2);
+  color: var(--lds-color-grey-900);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 7 欄 × 48px = 336，與設計稿一致 */
+.lds-datepicker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 48px);
+  justify-content: center;
+}
+
+/* 星期標頭在設計稿中同樣是 Button / Date，此處以非互動元素呈現 */
+.lds-datepicker__weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 48px;
+  block-size: 48px;
+  font: var(--lds-typography-body-m);
+  color: var(--lds-color-grey-700);
+  text-align: center;
+}
+
+.lds-datepicker__alert {
+  justify-content: flex-end;
+}
+
+.lds-datepicker__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--lds-spacing-s);
+  padding: var(--lds-spacing-xs) var(--lds-spacing-0);
+}
+
+/* ---------- Time Picker ---------- */
+
+.lds-timepicker {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: var(--lds-spacing-0) var(--lds-spacing-m);
+  font-family: var(--lds-font-family-sans);
+  background-color: var(--lds-color-primary-100);
+}
+
+.lds-timepicker--overlay {
+  /* Figma 固定寬度 528（12 + 360 + 144 + 12） */
+  inline-size: 528px;
+  max-inline-size: 100%;
+  border-radius: var(--lds-radius-l);
+  box-shadow: var(--lds-elevation-high);
+}
+
+.lds-timepicker--mobile {
+  /* Figma 固定寬度 375 */
+  inline-size: 375px;
+  max-inline-size: 100%;
+  border-radius: var(--lds-radius-0);
+}
+
+/* 桌機版：日曆與時間欄左右並排 */
+.lds-timepicker__body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.lds-timepicker__calendar {
+  inline-size: 360px;
+  flex: none;
+}
+
+.lds-timepicker__time {
+  inline-size: 144px;
+  flex: none;
+}
+
+/* 目前選到的時間，例如 00:00 */
+.lds-timepicker__display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  block-size: 64px;
+  font: var(--lds-typography-headline-2);
+  color: var(--lds-color-grey-900);
+}
+
+.lds-timepicker__columns {
+  display: flex;
+  justify-content: center;
+  /* Figma 將時／分兩欄裁切在 336 高度內，超出以捲動檢視 */
+  block-size: 336px;
+  overflow: hidden;
+}
+
+.lds-timepicker__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* 每欄 72 寬，內含 60 寬的按鈕，左右各留 6 */
+  inline-size: 72px;
+  block-size: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.lds-timepicker__column::-webkit-scrollbar {
+  display: none;
+}
+
+/* 行動版的分隔線 */
+.lds-timepicker__divider {
+  block-size: 1px;
+  margin-block: var(--lds-spacing-s);
+  background-color: var(--lds-color-primary-300);
+}

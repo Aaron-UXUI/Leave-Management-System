@@ -127,6 +127,18 @@ const ICONS = [
       { url: 'https://www.figma.com/api/mcp/asset/ffd03e2b-7a5d-4417-abdd-78897fa2ecc7', tx: 1, ty: 1 },
     ],
   },
+  // Overlay / Success 的成功圖示。實心圓中挖出勾號（nonzero 反向繞法），
+  // 原始資產另有 2px 的細微投影，此處略去。
+  {
+    name: 'success-check',
+    figmaName: 'Overlay / Success 內的 Motion 圖示',
+    nodeId: '1433:27234',
+    size: 152,
+    mode: 'fill',
+    parts: [
+      { url: 'https://www.figma.com/api/mcp/asset/931ca980-9da8-4d8b-bd6f-efd887ca3c22', tx: 0, ty: 0 },
+    ],
+  },
 ];
 
 /** 從 Figma 匯出的單筆 SVG 中取出 d 屬性。 */

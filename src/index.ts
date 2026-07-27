@@ -18,6 +18,9 @@ export * from './components/Alert';
 export * from './components/Dropdown';
 export * from './components/SearchBar';
 export * from './components/Navigation';
+export * from './components/DateTime';
+export * from './components/Pagination';
+export * from './components/Overlay';
 
 export { token, rawToken } from './tokens/tokens';
 export type { TokenName, CssVarName } from './tokens/tokens';
