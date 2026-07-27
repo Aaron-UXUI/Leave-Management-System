@@ -40,6 +40,9 @@ jobs:
       - name: 型別檢查
         run: npm run typecheck
 
+      - name: 程式碼檢查
+        run: npm run lint
+
       - name: 建置 Storybook
         run: npm run build-storybook
 

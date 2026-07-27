@@ -34,15 +34,15 @@ Figma 中同時存在：
 `2074:11240` 的 variant 值是 `State5`，沒有語意。建議改名為 `Error`。
 程式端已用 `state="error"`。
 
-### A5. 色階有缺口
+### ~~A5. 色階有缺口~~（已釐清，不是問題）
 
-以下色階未被任何元件引用，因此無法從 MCP 取得。
-若 Figma 中確實有定義，請補進 `tokens.json`：
+原本以為 `Primary/500`、`600` 與 `Grey Scale/500`、`600`、`800`、`Black`
+是漏定義。經設計者確認（2026-07-28），**色階沒有缺口** ——
+目前這些階就是實際需要的量，刻意不多做。
 
-- `Primary/500`、`Primary/600`
-- `Grey Scale/500`、`600`、`800`、`Black`
-- `Spacing/2xl`（依 24 → 48 的級距推測應為 32，但未確認，故未寫入）
-- `coner radius/m`
+`Spacing/2xl` 與 `coner radius/m` 同理，沒有被使用就沒有定義的必要。
+
+要新增色階或級距前，請先在 Figma 討論，不要因為「看起來少一階」就補。
 
 ### A6. Primary Button 的 Disable 狀態對比度不足
 
