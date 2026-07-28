@@ -6,3 +6,12 @@ storybook-static/
 .env
 .env.*
 !.env.example
+
+# 視覺回歸的基準畫面只保留 CI（Linux）產生的那份 ——
+# 字體渲染會因作業系統而異，本機跑出來的僅供自己比對，不進版控。
+tests/__screenshots__/*
+!tests/__screenshots__/linux/
+
+# Playwright 產出
+test-results/
+playwright-report/

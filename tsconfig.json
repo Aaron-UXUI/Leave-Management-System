@@ -17,5 +17,5 @@
     "noFallthroughCasesInSwitch": true,
     "declaration": true
   },
-  "include": ["src", ".storybook"]
+  "include": ["src", ".storybook", "tests", "playwright.config.ts"]
 }

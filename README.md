@@ -32,8 +32,10 @@ Storybook 會開在 <http://localhost:6006>。
 | `npm run storybook` | 開發用的元件瀏覽器 |
 | `npm run build` | 打包成可發布的套件 |
 | `npm run typecheck` | TypeScript 型別檢查 |
+| `npm run lint` | 程式碼檢查 |
 | `npm run tokens:build` | 由 `tokens.json` 產生 `tokens.css` 與 `tokens.ts` |
 | `npm run tokens:check` | 稽核：確認沒有寫死的視覺數值、沒有拼錯的 token |
+| `npm run vrt` | 視覺回歸比對（需先 `build-storybook`），見 [visual-testing.md](./docs/visual-testing.md) |
 
 ---
 

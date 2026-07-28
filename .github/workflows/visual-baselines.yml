@@ -1,0 +1,52 @@
+name: 更新視覺基準畫面
+
+# 手動觸發。畫面本來就該改的時候（例如 Figma 改了設計並已同步到程式碼），
+# 跑這個工作流程重新產生基準畫面並 commit 回來。
+#
+# 基準畫面一律在這裡產生，不在本機 —— 字體渲染會因作業系統而異，
+# 用 macOS 產的基準去跟 Linux 比對，只會得到滿江紅的假差異。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    name: 重新產生基準
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 安裝相依套件
+        run: npm ci
+
+      - name: 安裝瀏覽器
+        run: npx playwright install --with-deps chromium
+
+      - name: 建置 Storybook
+        run: npm run build-storybook
+
+      - name: 重新產生基準畫面
+        run: npm run vrt:update
+
+      - name: Commit 基準畫面
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/__screenshots__/linux
+          if git diff --staged --quiet; then
+            echo "基準畫面沒有變動，不需要 commit。"
+            exit 0
+          fi
+          git commit -m "更新視覺回歸的基準畫面
+
+          由「更新視覺基準畫面」工作流程產生。"
+          git push

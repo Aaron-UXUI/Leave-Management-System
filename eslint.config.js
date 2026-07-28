@@ -46,6 +46,16 @@ export default tseslint.config(
     extends: [...storybook.configs['flat/recommended']],
   },
 
+  // 測試跑在 Node + 瀏覽器兩邊
+  {
+    files: ['tests/**/*.ts', 'playwright.config.ts'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: { ...globals.node, ...globals.browser },
+    },
+  },
+
   // 建置腳本跑在 Node 上，不是瀏覽器
   {
     files: ['scripts/**/*.mjs'],

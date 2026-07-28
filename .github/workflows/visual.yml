@@ -1,0 +1,49 @@
+name: 視覺回歸
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual:
+    name: 比對畫面
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 安裝相依套件
+        run: npm ci
+
+      - name: 安裝瀏覽器
+        run: npx playwright install --with-deps chromium
+
+      - name: 建置 Storybook
+        run: npm run build-storybook
+
+      - name: 比對畫面
+        run: npm run vrt
+
+      # 失敗時把差異圖與報告留下來，PR 上點進去就能看到哪裡變了
+      - name: 上傳差異報告
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diff-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14
