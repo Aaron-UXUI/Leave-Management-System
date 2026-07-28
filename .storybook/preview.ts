@@ -1,5 +1,10 @@
 import type { Preview } from '@storybook/react-vite';
 
+// 設計稿指定的字體。用本地套件而非 CDN，讓視覺回歸測試的渲染結果穩定。
+import '@fontsource/noto-sans-tc/400.css';
+import '@fontsource/noto-sans-tc/500.css';
+import '@fontsource/noto-sans-tc/700.css';
+
 import '../src/tokens/tokens.css';
 import '../src/styles/global.css';
 

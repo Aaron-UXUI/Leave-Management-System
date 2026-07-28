@@ -37,6 +37,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
+    "@fontsource/noto-sans-tc": "^5.3.0",
+    "@playwright/test": "^1.62.0",
     "@storybook/addon-a11y": "^9.0.0",
     "@storybook/addon-docs": "^9.0.0",
     "@storybook/react-vite": "^9.0.0",
@@ -47,6 +49,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-storybook": "^9.1.20",
     "globals": "^15.15.0",
+    "http-server": "^14.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "storybook": "^9.0.0",

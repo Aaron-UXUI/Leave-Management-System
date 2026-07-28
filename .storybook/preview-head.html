@@ -1,6 +1,7 @@
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap"
-  rel="stylesheet"
-/>
+<!--
+  字體改由 @fontsource/noto-sans-tc 於 preview.ts 匯入，不再從 Google Fonts CDN 載入。
+
+  兩個理由：
+  1. 視覺回歸測試需要字體渲染穩定 —— 走 CDN 會因為網路時快時慢而產生假差異。
+  2. 發布出去的 Storybook 不必再依賴外部服務。
+-->

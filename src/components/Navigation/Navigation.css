@@ -45,8 +45,14 @@
   font: var(--lds-typography-headline-1);
 }
 
+/* 行動版標題不換行 —— 換行會把 48px 的列撐成兩行。
+ * Figma 的 App Bar / Mobile 也是把標題放在 160 寬的框內裁切（node 1392:23656）。 */
 .lds-appbar--mobile .lds-appbar__title {
   font: var(--lds-typography-headline-3);
+  min-inline-size: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .lds-appbar__back {

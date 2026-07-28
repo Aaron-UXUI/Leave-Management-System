@@ -63,7 +63,14 @@ function LeaveFormDemo() {
         onChange={(e) => setReason(e.target.value)}
       />
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--lds-spacing-l)' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: 'var(--lds-spacing-l)',
+        }}
+      >
         <SecondaryButton state="upload" />
         <TertiaryButton>上傳證明文件</TertiaryButton>
         <Label type="pending" />
