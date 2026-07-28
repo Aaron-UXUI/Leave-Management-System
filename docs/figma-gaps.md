@@ -7,19 +7,26 @@
 
 ## A. 需要在 Figma 修正
 
-### A1. 兩套間距命名並存，且定義衝突
+### A1. Search Bar 用了重複命名的間距變數
 
-Figma 中同時存在：
+只有 Search Bar（`2484:4001`）這一個元件，用了另一組命名的間距變數：
 
-| 群組一 | 值 | 群組二 | 值 |
+| Search Bar 用的 | 值 | 主要那套 | 值 |
 | --- | --- | --- | --- |
-| `Spacing/s` | 8 | `Spacing/s(8)` | 8 |
-| `Spacing/m` | **12** | `Spacing/sm(12)` | 12 |
-| `Spacing/l` | 16 | `Spacing/m(16)` | **16** |
+| `Spacing/s(8)` | 8 | `Spacing/s` | 8 |
+| `Spacing/sm(12)` | 12 | `Spacing/m` | 12 |
 
-`m` 在兩套裡分別是 12 和 16。Search Bar（`2484:4001`）用的是舊那套，
-其餘元件用新那套。程式端一律映射到新命名（`--lds-spacing-s/m/l`），
-但 Figma 應該把舊群組刪掉。
+**值是相同的，不是數值衝突，只是重複命名。**
+其餘元件（含同期建立的 Icon Button `2525:8786`、Overlay `1270:8106`）
+都用主要那套。
+
+程式端一律映射到主要命名（`--lds-spacing-s` / `--lds-spacing-m`）。
+Figma 端的修法：把 Search Bar 這兩個間距改綁到 `Spacing/s` 與 `Spacing/m`，
+再刪掉括號命名的那兩個變數。
+
+> 更正紀錄：本節原先寫成「兩套完整的間距級距，且 m 的定義衝突（12 vs 16）」，
+> 並列出 `Spacing/m(16)`。那是從兩個觀察到的名稱外推出來的，
+> `Spacing/m(16)` 並不存在。實際範圍只有上表這兩個變數。
 
 ### A2. `Type Scale/body/L` 與 `body/L` 衝突
 
@@ -44,14 +51,19 @@ Figma 中同時存在：
 
 要新增色階或級距前，請先在 Figma 討論，不要因為「看起來少一階」就補。
 
-### A6. Primary Button 的 Disable 狀態對比度不足
+### ~~A6. Primary Button 的 Disable 狀態對比度不足~~（判斷錯誤，不是問題）
 
-`1433:32130`：底色 `Grey Scale/100 #dcdcdc`、文字 `Grey Scale/White #fafafa`，
-對比度約 **1.35:1**。研究頁明訂系統須達 WCAG AA（一般文字需 4.5:1），
-且使用者年齡跨 20–60 歲以上。
+原本記載為 WCAG 違規，這是**錯的**。
 
-程式端目前**照設計稿實作**，未擅自更動。建議在 Figma 把停用態文字改為
-`Grey Scale/700`（對 `#dcdcdc` 約 7.4:1）或更深的灰。
+WCAG 2.1 的 1.4.3 Contrast (Minimum) 在 Incidental 例外中明確寫著：
+停用中（inactive）的使用者介面元件，其文字**沒有對比度要求**。
+Primary Button 的 Disable 態（`1433:32130`，`Grey Scale/White` 白字配
+`Grey Scale/100` 底）雖然對比只有約 1.35:1，但完全符合規範。
+
+同樣的豁免也適用於 Secondary Button 的 Disabled 態（`Primary/400` 文字）。
+
+**不需要改。** 設計上刻意讓停用態「看起來就是不能按」是正確的做法，
+把它調到 4.5:1 反而會讓使用者以為按鈕可用。
 
 ### A7. Secondary Button 上傳中，掃描條會蓋住文字
 

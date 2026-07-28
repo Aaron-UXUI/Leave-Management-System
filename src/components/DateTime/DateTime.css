@@ -209,11 +209,23 @@
   white-space: nowrap;
 }
 
-/* 7 欄 × 48px = 336，與設計稿一致 */
+/* 7 欄 × 48px = 336，與設計稿一致。
+ * 拆成 row 是為了滿足 ARIA grid 的 row → gridcell 層級要求，
+ * 視覺結果與攤平的 CSS grid 相同。 */
 .lds-datepicker__grid {
-  display: grid;
-  grid-template-columns: repeat(7, 48px);
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lds-datepicker__row {
+  display: flex;
+}
+
+.lds-datepicker__cell {
+  display: flex;
+  inline-size: 48px;
+  block-size: 48px;
 }
 
 /* 星期標頭在設計稿中同樣是 Button / Date，此處以非互動元素呈現 */

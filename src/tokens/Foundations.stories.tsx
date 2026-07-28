@@ -62,8 +62,8 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 const Meta_ = ({ cssVar, value }: { cssVar: string; value: string }) => (
   <div style={{ fontSize: 12, lineHeight: 1.6 }}>
     <code style={{ fontFamily: 'var(--lds-font-family-mono)' }}>{cssVar}</code>
-    <div style={{ color: 'var(--lds-color-grey-400)' }}>{value}</div>
-    <div style={{ color: 'var(--lds-color-grey-400)' }}>Figma：{figmaNameOf(cssVar) || '—'}</div>
+    <div style={{ color: 'var(--lds-color-grey-700)' }}>{value}</div>
+    <div style={{ color: 'var(--lds-color-grey-700)' }}>Figma：{figmaNameOf(cssVar) || '—'}</div>
   </div>
 );
 

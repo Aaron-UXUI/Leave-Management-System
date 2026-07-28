@@ -23,7 +23,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Caption = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ fontSize: 12, color: 'var(--lds-color-grey-400)', marginBottom: 8 }}>{children}</div>
+  <div style={{ fontSize: 12, color: 'var(--lds-color-grey-700)', marginBottom: 8 }}>{children}</div>
 );
 
 /** 組成日期時間選擇器的三個原子按鈕。 */

@@ -24,7 +24,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const Caption = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ fontSize: 12, color: 'var(--lds-color-grey-400)', marginBottom: 8 }}>{children}</div>
+  <div style={{ fontSize: 12, color: 'var(--lds-color-grey-700)', marginBottom: 8 }}>{children}</div>
 );
 
 /** 說明浮層，內容為預錄課程的時間規則。 */

@@ -32,7 +32,8 @@
   background: none;
   font-family: var(--lds-font-family-sans);
   font: var(--lds-typography-body-m);
-  color: var(--lds-color-grey-400);
+  /* 未選取時的提示文字。Grey Scale/600 對白底約 4.74:1，達 WCAG AA。 */
+  color: var(--lds-color-grey-600);
   text-align: start;
   cursor: pointer;
 }

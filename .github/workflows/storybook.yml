@@ -43,6 +43,9 @@ jobs:
       - name: 程式碼檢查
         run: npm run lint
 
+      - name: 單元測試
+        run: npm test
+
       - name: 建置 Storybook
         run: npm run build-storybook
 

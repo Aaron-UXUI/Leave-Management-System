@@ -1,4 +1,4 @@
-name: 視覺回歸
+name: 視覺與無障礙
 
 on:
   push:
@@ -36,6 +36,11 @@ jobs:
 
       - name: 比對畫面
         run: npm run vrt
+
+      # 無障礙檢查跟視覺比對共用同一份建置，不另外開 job
+      - name: 無障礙檢查
+        if: always()
+        run: npm run a11y
 
       # 失敗時把差異圖與報告留下來，PR 上點進去就能看到哪裡變了
       - name: 上傳差異報告

@@ -93,6 +93,10 @@ export interface HourMinuteButtonProps extends ButtonHTMLAttributes<HTMLButtonEl
  *
  * 60×48，數字使用 SF Mono 等寬字，讓時間欄位在捲動時不會左右跳動。
  * 選取時底色為 Primary/200、文字轉 Grey Scale/900。
+ *
+ * 選取狀態不會自己輸出 aria-pressed —— 這個元件在 TimePicker 中是放在
+ * role="listbox" 裡當 option 用，而 aria-pressed 不允許用在 option 上。
+ * 選取語意由使用端決定（TimePicker 傳的是 aria-selected）。
  */
 export function HourMinuteButton({
   children,
@@ -106,7 +110,6 @@ export function HourMinuteButton({
       type={type}
       className={`lds-hmbtn${className ? ` ${className}` : ''}`}
       data-selected={selected || undefined}
-      aria-pressed={selected}
       {...rest}
     >
       {children}

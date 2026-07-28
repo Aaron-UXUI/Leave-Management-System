@@ -65,9 +65,13 @@ export function DateSelectionDropdown({
     <div className={`lds-dropdown lds-dropdown--dateonly${className ? ` ${className}` : ''}`}>
       <span className="lds-dropdown__label" id={fieldId}>
         {required && (
-          <span className="lds-dropdown__required" aria-hidden="true">
-            *{' '}
-          </span>
+          <>
+            <span className="lds-dropdown__required" aria-hidden="true">
+              *{' '}
+            </span>
+            {/* 星號對螢幕閱讀器沒有意義，改用文字傳達必填 */}
+            <span className="lds-visually-hidden">必填 </span>
+          </>
         )}
         {label}
       </span>
@@ -78,7 +82,7 @@ export function DateSelectionDropdown({
         data-state={state}
         disabled={disabled}
         aria-labelledby={fieldId}
-        aria-required={required || undefined}
+        // aria-required 不允許用在 button 上；必填改由標題中的隱藏文字傳達
         aria-invalid={isError || undefined}
         aria-describedby={isError ? errorId : undefined}
         {...rest}

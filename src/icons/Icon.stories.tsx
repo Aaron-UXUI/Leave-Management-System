@@ -59,7 +59,7 @@ export const AllIcons: Story = {
           <span
             style={{
               fontSize: 11,
-              color: 'var(--lds-color-grey-400)',
+              color: 'var(--lds-color-grey-700)',
               textAlign: 'center',
               lineHeight: 1.4,
             }}
@@ -83,7 +83,7 @@ export const ChevronDirections: Story = {
       {([0, 90, 180, 270] as const).map((deg) => (
         <div key={deg} style={{ textAlign: 'center' }}>
           <Icon name="chevron-down" rotate={deg} />
-          <div style={{ fontSize: 12, color: 'var(--lds-color-grey-400)' }}>{deg}°</div>
+          <div style={{ fontSize: 12, color: 'var(--lds-color-grey-700)' }}>{deg}°</div>
         </div>
       ))}
     </div>

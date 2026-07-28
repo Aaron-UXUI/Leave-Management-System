@@ -37,7 +37,7 @@ const Row = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Caption = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ fontSize: 12, color: 'var(--lds-color-grey-400)', marginBottom: 4 }}>{children}</div>
+  <div style={{ fontSize: 12, color: 'var(--lds-color-grey-700)', marginBottom: 4 }}>{children}</div>
 );
 
 /** Primary Button 的三個 Figma 狀態。 */

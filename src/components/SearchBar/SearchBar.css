@@ -38,8 +38,9 @@
   color: var(--lds-color-grey-900);
 }
 
+/* 提示文字。Grey Scale/600 對白底約 4.74:1，達 WCAG AA。 */
 .lds-searchbar__input::placeholder {
-  color: var(--lds-color-grey-400);
+  color: var(--lds-color-grey-600);
 }
 
 /* ⚠ Figma 未定義聚焦樣式，以下為程式端補充。見 docs/figma-gaps.md */
