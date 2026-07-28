@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   inline-size: 100%;
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
   font-family: var(--lds-font-family-sans);
 }
 
@@ -94,7 +94,7 @@
   align-items: flex-start;
   inline-size: 100%;
   overflow: hidden;
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
   font-family: var(--lds-font-family-sans);
 }
 

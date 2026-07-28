@@ -13,7 +13,7 @@
   font-family: var(--lds-font-family-sans);
   color: var(--lds-color-grey-900);
   /* 內容區底色。Figma 各畫面的底色與 App Bar 一致 */
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
 }
 
 /* ---------- 頂部列 ---------- */
@@ -22,7 +22,7 @@
   flex: none;
   /* iOS 標準模式下保留系統狀態列的安全區，取代 Figma 的 Status bar 圖層 */
   padding-block-start: env(safe-area-inset-top, 0px);
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
 }
 
 .lds-page[data-sticky] .lds-page__bars {
@@ -77,6 +77,6 @@
   z-index: 10;
   /* 保留 home indicator 的安全區 */
   padding-block-end: env(safe-area-inset-bottom, 0px);
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
   box-shadow: var(--lds-elevation-low);
 }

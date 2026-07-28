@@ -12,25 +12,25 @@
 :root {
 
   /* ---- Color — Primary / Grey Scale / Semantic ---- */
-  --lds-color-primary-100:                   #e1e8f0;                           /* Primary/100 */
-  --lds-color-primary-200:                   #c3d1e0;                           /* Primary/200 */
-  --lds-color-primary-300:                   #a3bbd6;                           /* Primary/300 */
-  --lds-color-primary-400:                   #93aecc;                           /* Primary/400 */
-  --lds-color-primary-700:                   #4d7099;                           /* Primary/700 */
-  --lds-color-primary-800:                   #355a85;                           /* Primary/800 */
-  --lds-color-primary-900:                   #254973;                           /* Primary/900 */
-  --lds-color-grey-100:                      #dcdcdc;                           /* Grey Scale/100 */
-  --lds-color-grey-200:                      #c3c3c3;                           /* Grey Scale/200 */
-  --lds-color-grey-300:                      #aaaaaa;                           /* Grey Scale/300 */
-  --lds-color-grey-400:                      #929292;                           /* Grey Scale/400 */
-  --lds-color-grey-600:                      #737373;                           /* Grey Scale/600 */
-  --lds-color-grey-700:                      #4e4e4e;                           /* Grey Scale/700 */
-  --lds-color-grey-900:                      #262626;                           /* Grey Scale/900 */
-  --lds-color-grey-white:                    #fafafa;                           /* Grey Scale/White */
-  --lds-color-success-text:                  #365c00;                           /* Semantic Color/Success-text */
-  --lds-color-success-icon:                  #5d960e;                           /* Semantic Color/Success-icon */
-  --lds-color-destruct-text:                 #ab0000;                           /* Semantic Color/Destruct-text */
-  --lds-color-destruct-icon:                 #c74040;                           /* Semantic Color/Destruct-icon */
+  --lds-color-primary-100:                   #e1e8f0;                           /* Semantic/Primary/100 */
+  --lds-color-primary-200:                   #c3d1e0;                           /* Semantic/Primary/200 */
+  --lds-color-primary-300:                   #a3bbd6;                           /* Semantic/Primary/300 */
+  --lds-color-primary-400:                   #93aecc;                           /* Semantic/Primary/400 */
+  --lds-color-primary-700:                   #4d7099;                           /* Semantic/Primary/700 */
+  --lds-color-primary-800:                   #355a85;                           /* Semantic/Primary/800 */
+  --lds-color-primary-900:                   #254973;                           /* Semantic/Primary/900 */
+  --lds-color-grey-0:                        #fafafa;                           /* Semantic/Grey Scale/0 */
+  --lds-color-grey-100:                      #dcdcdc;                           /* Semantic/Grey Scale/100 */
+  --lds-color-grey-200:                      #c3c3c3;                           /* Semantic/Grey Scale/200 */
+  --lds-color-grey-300:                      #aaaaaa;                           /* Semantic/Grey Scale/300 */
+  --lds-color-grey-400:                      #929292;                           /* Semantic/Grey Scale/400 */
+  --lds-color-grey-600:                      #737373;                           /* Semantic/Grey Scale/600 */
+  --lds-color-grey-700:                      #4e4e4e;                           /* Semantic/Grey Scale/700 */
+  --lds-color-grey-900:                      #262626;                           /* Semantic/Grey Scale/900 */
+  --lds-color-success-text:                  #365c00;                           /* Semantic/Semantic Color/Success-text */
+  --lds-color-success-icon:                  #5d960e;                           /* Semantic/Semantic Color/Success-icon */
+  --lds-color-destruct-text:                 #ab0000;                           /* Semantic/Semantic Color/Destruct-text */
+  --lds-color-destruct-icon:                 #c74040;                           /* Semantic/Semantic Color/Destruct-icon */
 
   /* ---- Spacing ---- */
   --lds-spacing-0:                           0px;                               /* Spacing/0 */

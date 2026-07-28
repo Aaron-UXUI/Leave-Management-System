@@ -52,7 +52,7 @@
   padding: var(--lds-spacing-s) var(--lds-spacing-l);
   border: 1px solid var(--lds-color-grey-300);
   border-radius: var(--lds-radius-s);
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
   color: var(--lds-color-grey-900);
   font-family: var(--lds-font-family-sans);
   font: var(--lds-typography-body-m);

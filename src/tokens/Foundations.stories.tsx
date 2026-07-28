@@ -198,7 +198,7 @@ export const RadiusAndElevation: Story = {
                   inlineSize: 140,
                   blockSize: 80,
                   borderRadius: 'var(--lds-radius-s)',
-                  background: 'var(--lds-color-grey-white)',
+                  background: 'var(--lds-color-grey-0)',
                   boxShadow: value,
                   marginBottom: 'var(--lds-spacing-l)',
                 }}

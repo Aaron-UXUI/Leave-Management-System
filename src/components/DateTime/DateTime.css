@@ -42,7 +42,7 @@
 }
 
 .lds-datebtn[data-selected] {
-  color: var(--lds-color-grey-white);
+  color: var(--lds-color-grey-0);
 }
 
 .lds-datebtn__text {
@@ -189,7 +189,7 @@
   max-inline-size: 100%;
   padding: var(--lds-spacing-0) var(--lds-spacing-m);
   border-radius: var(--lds-radius-0);
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
 }
 
 .lds-datepicker__selection {

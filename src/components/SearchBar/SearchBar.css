@@ -18,7 +18,7 @@
   padding-inline: var(--lds-spacing-m) var(--lds-spacing-0);
   border: 1px solid var(--lds-color-grey-200);
   border-radius: var(--lds-radius-s);
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
   box-shadow: var(--lds-elevation-low);
 }
 

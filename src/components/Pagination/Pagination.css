@@ -42,7 +42,7 @@
 
 .lds-pagination__page[data-current] {
   background-color: var(--lds-color-primary-900);
-  color: var(--lds-color-grey-white);
+  color: var(--lds-color-grey-0);
 }
 
 /* ⚠ Figma 未定義 hover / 聚焦，以下為程式端補充。見 docs/figma-gaps.md */

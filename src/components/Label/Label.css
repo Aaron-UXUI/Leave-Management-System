@@ -30,17 +30,17 @@
 /* 待審 */
 .lds-label--pending {
   background-color: var(--lds-color-primary-800);
-  color: var(--lds-color-grey-white);
+  color: var(--lds-color-grey-0);
 }
 
 /* 通過 */
 .lds-label--pass {
   background-color: var(--lds-color-success-text);
-  color: var(--lds-color-grey-white);
+  color: var(--lds-color-grey-0);
 }
 
 /* 拒絕 */
 .lds-label--reject {
   background-color: var(--lds-color-destruct-text);
-  color: var(--lds-color-grey-white);
+  color: var(--lds-color-grey-0);
 }

@@ -27,6 +27,39 @@ Figma 向量資產 ──→ src/icons/svg/*.svg ──→ icons.generated.ts �
 
 ---
 
+## 色彩的兩層結構
+
+Figma 的色彩變數分成兩層（2026-07-28 起）：
+
+```
+Primitive/…              ← 原始色票，只有色彩本身的名字
+      ↑ 被引用
+Semantic/Primary/800     ← 元件實際引用的這一層
+Semantic/Grey Scale/0
+Semantic/Semantic Color/Destruct-text
+```
+
+**程式端鏡像的是 Semantic 層**，因為那是元件實際綁定的層級。
+`--lds-color-primary-800` 對應 `Semantic/Primary/800`。
+
+Primitive 層沒有進到程式碼，原因有二：
+
+1. **技術上取不到。** `get_variable_defs` 只會回傳「被元件實際引用」的變數。
+   元件綁的是 Semantic，所以 Primitive 的名稱與值不會出現在同步結果裡。
+2. **也沒有必要。** 程式端引用 Primitive 等於繞過 Semantic 層，
+   那正是這個分層要防止的事。
+
+若日後需要在程式端也暴露 Primitive（例如要做主題切換），
+得由設計端提供該層的完整清單，不能靠同步工具自動抓。
+
+⚠ 目前 Semantic 層的命名仍是階數制（`Semantic/Primary/800`），
+不是角色制（例如 `text-primary`、`surface-default`）。
+這代表分層目前帶來的主要好處是「換色票不用改元件」，
+還沒有到「看名字就知道用途」。若之後要往角色制走，程式端的
+CSS 變數名要一起改，屬於破壞性變更。
+
+---
+
 ## 情境一：Figma 改了顏色、間距、字級等變數
 
 1. 在 Figma 用 MCP 取出該節點的變數：

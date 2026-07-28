@@ -14,7 +14,7 @@
   justify-content: center;
   padding: var(--lds-spacing-s);
   border-radius: var(--lds-radius-s);
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
   box-shadow: var(--lds-elevation-medium);
   font-family: var(--lds-font-family-sans);
   font: var(--lds-typography-body-m);
@@ -49,7 +49,7 @@
   max-inline-size: 100%;
   overflow: hidden;
   border-radius: var(--lds-radius-l);
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
   box-shadow: var(--lds-elevation-high);
   font-family: var(--lds-font-family-sans);
 }
@@ -138,7 +138,7 @@
   inline-size: 100%;
   padding: var(--lds-spacing-s) var(--lds-spacing-xl);
   overflow: hidden;
-  background-color: var(--lds-color-grey-white);
+  background-color: var(--lds-color-grey-0);
 }
 
 /* 底部列中的按鈕撐滿寬度 */
