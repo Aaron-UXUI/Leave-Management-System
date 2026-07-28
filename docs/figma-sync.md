@@ -130,32 +130,30 @@ Figma 匯出圖示時，會把每一筆 stroke 各自輸出成獨立 SVG，
 
 ---
 
-## Code Connect：目前受方案限制，做不了
+## Code Connect：評估過，決定不採用
 
 Code Connect 可以讓設計師在 Figma 裡選中一個元件時，右側面板直接顯示對應的
 程式碼用法（例如選中「Primary Button / State=Disable」就顯示
-`<PrimaryButton disabled>提交請假單</PrimaryButton>`），把 Figma ↔ 程式碼的
-回路接成雙向。
+`<PrimaryButton disabled>提交請假單</PrimaryButton>`）。
 
-**但目前無法啟用。** 實測結果：
+實測後確認它需要 **Organization 或 Enterprise 方案**加上 Dev/Full 座位：
 
 > You need a Dev or Full seat on an Organization or Enterprise plan to use Code Connect.
 
-本專案的 Figma 帳號是 **Professional** 方案，Code Connect 需要
-**Organization 或 Enterprise** 方案。這是方案層級的限制，沒有繞道方式。
+本專案的 Figma 是 Professional 方案。**2026-07-28 決定不為此升級方案，
+這件事就此結案**，不是待辦事項。
 
-若日後升級了方案，要做的事：
+### 那對照關係靠什麼維持
 
-1. 元件必須先發布到團隊 library（目前元件頁尚未發布為 library）。
-2. `npm i -D @figma/code-connect`，並在 `tsconfig.json` 的 `types` 加入
-   `@figma/code-connect/figma-types`。
-3. 為每個元件建立 `ComponentName.figma.ts` 模板（注意是 `.ts` 不是 `.tsx`，
-   且用 `figma.code` 標籤模板，不是 `figma.connect()`）。
-4. [component-map.md](./component-map.md) 已經有完整的 Figma node ↔ 程式碼對照，
-   可以直接拿來當作建立模板的依據，不用重新盤點。
+[component-map.md](./component-map.md)。它記錄了每個 Figma 節點對應哪支程式碼、
+以及 variant 怎麼對應到 props，涵蓋範圍與 Code Connect 相同。
 
-在那之前，[component-map.md](./component-map.md) 就是這份對照關係的載體 ——
-只是需要人工查表，不會出現在 Figma 介面裡。
+差別只在使用方式：Code Connect 是在 Figma 介面裡直接看到，
+對照表則需要人工查。對目前的團隊規模（設計與工程各一到數人）來說，
+查表的成本遠低於升級方案的成本。
+
+**因此 component-map.md 必須跟著元件一起維護** —— 它現在是這份對照關係的
+唯一載體，過期了就沒有第二個地方可以對。
 
 ---
 
