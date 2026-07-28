@@ -1,0 +1,6 @@
+訊息更正：此 commit 的標題誤植為「加入 PageLayout 版面骨架」。
+
+PageLayout 本體在前一個 commit（18e03a6）。本 commit 的實際內容是：
+- 字體從 Google Fonts CDN 改為 @fontsource/noto-sans-tc
+- 行動版 App Bar 標題改為不換行加省略號
+- PageLayout 示範內容改為可換行
