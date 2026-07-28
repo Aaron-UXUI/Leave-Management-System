@@ -1,12 +1,25 @@
 {
-  "name": "leave-management-design-system",
+  "name": "@aaron-uxui/leave-management-design-system",
   "version": "0.1.0",
   "private": false,
   "description": "請假系統＿本土語文直播共學 設計系統。唯一真實來源為 Figma。",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aaron-UXUI/Leave-Management-System.git"
+  },
+  "homepage": "https://aaron-uxui.github.io/Leave-Management-System/",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
-    "dist"
+    "dist",
+    "src/tokens/tokens.css",
+    "src/tokens/tokens.json"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -33,7 +46,8 @@
     "vrt": "playwright test tests/visual.spec.ts",
     "vrt:update": "playwright test tests/visual.spec.ts --update-snapshots",
     "a11y": "playwright test tests/a11y.spec.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepublishOnly": "npm run tokens:check && npm run typecheck && npm run lint && npm test && npm run build"
   },
   "peerDependencies": {
     "react": ">=18",

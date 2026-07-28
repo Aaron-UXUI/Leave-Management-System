@@ -4,7 +4,15 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts({ include: ['src'], rollupTypes: false })],
+  plugins: [
+    react(),
+    dts({
+      include: ['src'],
+      // story 與測試不是套件的公開介面，不要產生對應的型別檔
+      exclude: ['src/**/*.stories.tsx', 'src/**/*.test.ts'],
+      rollupTypes: false,
+    }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),

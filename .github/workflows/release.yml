@@ -1,0 +1,47 @@
+name: 發布套件
+
+# 推送 v 開頭的標籤時觸發，例如 v0.2.0。
+# 標籤是唯一的觸發條件 —— 一般的 push 不會發布，避免誤發。
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+  id-token: write # npm provenance 需要
+
+jobs:
+  publish:
+    name: 發布到 npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+
+      - name: 安裝相依套件
+        run: npm ci
+
+      # 確認標籤版本與 package.json 一致，避免發出對不上的版本
+      - name: 核對版本
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG=$(node -p "require('./package.json').version")
+          if [ "$TAG" != "$PKG" ]; then
+            echo "標籤是 v$TAG，但 package.json 是 $PKG，兩者必須一致。"
+            echo "請執行 npm version <版號> 來同時更新兩者。"
+            exit 1
+          fi
+          echo "版本一致：$PKG"
+
+      # prepublishOnly 會跑 token 稽核、型別檢查、lint、單元測試與建置，
+      # 任何一關沒過就不會發布
+      - name: 發布
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
