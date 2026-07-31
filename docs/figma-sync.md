@@ -154,12 +154,19 @@ Figma 匯出圖示時，會把每一筆 stroke 各自輸出成獨立 SVG，
 `npm run tokens:check` 會掃過 `src/components` 與 `src/styles` 下所有 CSS，
 在兩種情況失敗：
 
-1. **出現寫死的視覺數值** —— 色碼、`font-size`、`border-radius`、`box-shadow`
-   只要沒有走 `var(--lds-*)` 就會被擋下。
+1. **出現寫死的視覺數值** —— 色碼、`font-size`、`border-radius`、`box-shadow`、
+   以及 `padding` / `margin` / `gap` 只要沒有走 `var(--lds-*)` 就會被擋下。
+   間距的檢查會先剝掉 `var()` 與 `env()` 再看剩下什麼，所以
+   `padding: var(--lds-spacing-xs) 11px` 這種混用也抓得到。
 2. **引用了不存在的 token** —— 抓變數名拼錯。這種錯在瀏覽器裡是靜默失效的，
    靠肉眼很難發現。
 
-建議接到 CI 或 pre-commit，這是「Figma 是唯一真實來源」在工程上唯一有強制力的環節。
+設計稿本身就沒有使用 token 的少數情況（例如 Pagination 的 10px），
+在該行或上一行加 `/* non-token: 原因 */` 即可豁免 —— 刻意做得顯眼，
+讓例外必須寫下理由，而不是默默放行。
+
+已接上 CI（`storybook.yml` 的發布前關卡）。這是「Figma 是唯一真實來源」
+在工程上唯一有強制力的環節。
 
 ---
 

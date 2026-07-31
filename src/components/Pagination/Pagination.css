@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Figma 標示 10px，未使用 token。見 docs/figma-gaps.md */
+  /* non-token：Figma 標示 10px，不在 spacing 級距上。見 docs/figma-gaps.md A10 */
   gap: 10px;
   block-size: 48px;
   overflow: hidden;
@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
   inline-size: 32px;
-  /* Figma 標示左右 11px，未使用 token。見 docs/figma-gaps.md */
+  /* non-token：Figma 標示左右 11px，不在 spacing 級距上。見 docs/figma-gaps.md A10 */
   padding: var(--lds-spacing-xs) 11px;
   border: none;
   border-radius: var(--lds-radius-xs);

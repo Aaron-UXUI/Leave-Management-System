@@ -59,8 +59,8 @@ Figma 端的修法：把 Bar 區塊剩下的引用改綁過去，再刪掉括號
 
 WCAG 2.1 的 1.4.3 Contrast (Minimum) 在 Incidental 例外中明確寫著：
 停用中（inactive）的使用者介面元件，其文字**沒有對比度要求**。
-Primary Button 的 Disable 態（`1433:32130`，`Grey Scale/White` 白字配
-`Grey Scale/100` 底）雖然對比只有約 1.35:1，但完全符合規範。
+Primary Button 的 Disable 態（`1433:32130`，`Semantic/Grey Scale/0` 白字配
+`Semantic/Grey Scale/100` 底）雖然對比只有約 1.35:1，但完全符合規範。
 
 同樣的豁免也適用於 Secondary Button 的 Disabled 態（`Primary/400` 文字）。
 
@@ -127,7 +127,7 @@ Primary Button 的 Disable 態（`1433:32130`，`Grey Scale/White` 白字配
 | 全部可聚焦元件 | `:focus-visible` | 3px `Primary/700` 外框、offset 2px |
 | Tertiary Button | hover / disabled | `Primary/900` + 底線 ／ `Grey Scale/300` |
 | Icon Button | hover / disabled | 沿用 Secondary 的 hover 語彙（`Primary/100` 底 + `Primary/800` 邊框） |
-| Text Field | focus / disabled | `Primary/800` 邊框 ／ `Grey Scale/100` 底、`Grey Scale/400` 文字 |
+| Text Field | focus / disabled | `Primary/800` 邊框 ／ `Semantic/Grey Scale/100` 底、`Grey Scale/400` 文字 |
 | Radio / Checkbox | disabled | `Grey Scale/300` 邊框與圓點 |
 | Nav Bar | hover | 文字轉 `Primary/800` |
 | Button / Date | hover / disabled | `Primary/100` 底 ／ `Grey Scale/300` 文字 |

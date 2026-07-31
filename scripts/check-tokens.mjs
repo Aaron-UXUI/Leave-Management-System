@@ -44,7 +44,36 @@ const RULES = [
     re: /\bbox-shadow\s*:\s*([^;]+);/g,
     message: 'box-shadow 請改用 var(--lds-elevation-*)',
   },
+  {
+    id: 'hardcoded-spacing',
+    // padding / margin / gap 及其邏輯屬性寫法
+    re: /\b((?:padding|margin)(?:-(?:block|inline|top|right|bottom|left))?(?:-(?:start|end))?|(?:row-|column-)?gap)\s*:\s*([^;]+);/g,
+    valueGroup: 2,
+    message: '間距請改用 var(--lds-spacing-*)',
+  },
 ];
+
+/**
+ * 屬性值裡是否還有「沒走 token」的長度值。
+ *
+ * 不能只判斷「整段有沒有出現 var(--lds-」—— padding: var(--lds-spacing-xs) 11px
+ * 這種混用會被放過。做法是先把所有 var(...) 拿掉，再看剩下什麼。
+ */
+const hasBareLength = (value) => {
+  const stripped = value
+    // token 參照
+    .replace(/var\([^()]*(?:\([^()]*\)[^()]*)*\)/g, ' ')
+    // 瀏覽器提供的安全區，由裝置決定而非設計決定
+    .replace(/env\([^()]*(?:\([^()]*\)[^()]*)*\)/g, ' ');
+  return /(?<![\w.-])\d*\.?\d+(px|rem|em|%|ch|vh|vw)\b/.test(stripped);
+};
+
+/** 標了 non-token 的行（或其上一行）可豁免，用於設計稿本身就沒使用 token 的情況。 */
+const isExempt = (lines, lineNo) => {
+  const current = lines[lineNo - 1] ?? '';
+  const previous = lines[lineNo - 2] ?? '';
+  return /non-token/.test(current) || /non-token/.test(previous);
+};
 
 const walkCss = (dir) => {
   let out = [];
@@ -76,18 +105,29 @@ for (const file of files) {
   const code = src.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, ' '));
   const rel = relative(root, file);
 
+  const srcLines = src.split('\n');
+
   for (const rule of RULES) {
     rule.re.lastIndex = 0;
     let m;
     while ((m = rule.re.exec(code)) !== null) {
-      const captured = (m[1] ?? m[0]).trim();
-      if (captured.includes('var(--lds-')) continue;
-      if (ALLOWED_LITERALS.has(captured)) continue;
-      // 允許 "1px solid var(--lds-color-...)" 這類複合值中的非數值關鍵字
-      if (rule.id !== 'hardcoded-color' && !/[0-9#]/.test(captured)) continue;
+      const captured = (m[rule.valueGroup ?? 1] ?? m[0]).trim();
+      const line = lineOf(code, m.index);
+
+      if (rule.id === 'hardcoded-spacing') {
+        // 混用 var() 與裸數值也要抓，所以另外判斷
+        if (!hasBareLength(captured)) continue;
+        if (isExempt(srcLines, line)) continue;
+      } else {
+        if (captured.includes('var(--lds-')) continue;
+        if (ALLOWED_LITERALS.has(captured)) continue;
+        // 允許 "1px solid var(--lds-color-...)" 這類複合值中的非數值關鍵字
+        if (rule.id !== 'hardcoded-color' && !/[0-9#]/.test(captured)) continue;
+      }
+
       problems.push({
         file: rel,
-        line: lineOf(code, m.index),
+        line,
         rule: rule.id,
         found: captured,
         message: rule.message,

@@ -44,8 +44,8 @@ Storybook 會開在 <http://localhost:6006>。
 ## 在專案中使用
 
 ```tsx
-import { PrimaryButton, TextField, Label, Icon } from 'leave-management-design-system';
-import 'leave-management-design-system/styles.css';
+import { PrimaryButton, TextField, Label, Icon } from '@aaron-uxui/leave-management-design-system';
+import '@aaron-uxui/leave-management-design-system/styles.css';
 
 function LeaveForm() {
   return (
@@ -61,12 +61,12 @@ function LeaveForm() {
 只想要 token、不需要 React 元件的話：
 
 ```css
-@import 'leave-management-design-system/tokens.css';
+@import '@aaron-uxui/leave-management-design-system/tokens.css';
 
 .my-card {
   padding: var(--lds-spacing-l);
   border-radius: var(--lds-radius-s);
-  background: var(--lds-color-grey-white);
+  background: var(--lds-color-grey-0);
   box-shadow: var(--lds-elevation-low);
   font: var(--lds-typography-body-m);
 }
@@ -125,8 +125,9 @@ Keyboard）與原型用的 Motion 畫板未做，原因見
 所有元件的預設文字都不小於這個值。
 
 **不寫死任何視覺數值。** 元件 CSS 裡出現色碼、`font-size`、`border-radius`、
-`box-shadow` 的字面值，稽核就會失敗。這是 Figma 作為唯一真實來源在工程上
-唯一有強制力的環節，建議接到 CI。
+`box-shadow`、`padding` / `margin` / `gap` 的字面值，稽核就會失敗。
+設計稿本身就沒用 token 的少數情況，在該行加 `/* non-token: 原因 */` 豁免。
+這是 Figma 作為唯一真實來源在工程上唯一有強制力的環節，已接上 CI。
 
 **文案也是設計系統的一部分。** Secondary Button 的「正在上傳中...」「上傳成功！」、
 Alert 的「請選擇假別」、假別清單等，都寫在元件的預設值裡，
